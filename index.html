@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<html lang="zh-CN" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>xalgo.ai - Experience AI in Everyday Life</title>
+    <meta name="description" content="xalgo.ai 致力于开发智能硬件（智能戒指、智能眼镜、智能画框等）背后的自研算法和模型，并致力于开源生态。">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        primary: '#0EA5E9',
+                        secondary: '#38BDF8',
+                        cta: '#F97316',
+                        background: '#040D1A',
+                    },
+                    animation: {
+                        blob: "blob 7s infinite",
+                        'slide-up': 'slideUp 0.8s ease-out forwards',
+                        'fade-in': 'fadeIn 1s ease-out forwards',
+                    },
+                    keyframes: {
+                        blob: {
+                            "0%": { transform: "translate(0px, 0px) scale(1)" },
+                            "33%": { transform: "translate(30px, -50px) scale(1.1)" },
+                            "66%": { transform: "translate(-20px, 20px) scale(0.9)" },
+                            "100%": { transform: "translate(0px, 0px) scale(1)" },
+                        },
+                        slideUp: {
+                            "0%": { opacity: 0, transform: "translateY(20px)" },
+                            "100%": { opacity: 1, transform: "translateY(0)" },
+                        },
+                        fadeIn: {
+                            "0%": { opacity: 0 },
+                            "100%": { opacity: 1 },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Base Glassmorphism utility classes */
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .glass-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            transition: all 300ms ease;
+        }
+
+        .glass-card:hover {
+            background: rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            transform: translateY(-4px);
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.3), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
+        }
+
+        .gradient-text {
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-image: linear-gradient(to right, #0EA5E9, #38BDF8);
+        }
+
+        /* Hide scrollbar for clean look but allow scroll */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #040D1A;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #1e293b;
+            border-radius: 4px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: #334155;
+        }
+    </style>
+</head>
+
+<body class="bg-background text-slate-200 antialiased overflow-x-hidden relative selection:bg-primary/30">
+
+    <!-- Ambient Glowing Background Blobs -->
+    <div class="fixed inset-0 overflow-hidden pointer-events-none z-0 mix-blend-screen">
+        <div
+            class="absolute top-[-10%] left-[-10%] w-96 h-96 bg-primary/20 rounded-full mix-blend-screen filter blur-[100px] animate-blob">
+        </div>
+        <div
+            class="absolute top-[20%] right-[-5%] w-[30rem] h-[30rem] bg-indigo-500/20 rounded-full mix-blend-screen filter blur-[100px] animate-blob animation-delay-2000">
+        </div>
+        <div
+            class="absolute bottom-[-10%] left-[20%] w-[40rem] h-[40rem] bg-sky-600/10 rounded-full mix-blend-screen filter blur-[120px] animate-blob animation-delay-4000">
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav
+        class="fixed top-4 left-4 right-4 z-50 rounded-2xl glass-panel max-w-7xl mx-auto px-6 py-4 flex items-center justify-between transition-all duration-300">
+        <div
+            class="flex items-center cursor-pointer bg-white/95 px-3 py-2 rounded-xl shadow-md border border-white/20 transform hover:scale-105 transition-all duration-300">
+            <img src="./logo.png" alt="xalgo logo" class="h-6 object-contain" />
+        </div>
+
+        <div class="hidden md:flex items-center gap-8">
+            <a href="#hardware" class="text-sm font-medium text-slate-300 hover:text-white transition-colors">硬件产品</a>
+            <a href="#algorithms" class="text-sm font-medium text-slate-300 hover:text-white transition-colors">核心算法</a>
+            <a href="#opensource" class="text-sm font-medium text-slate-300 hover:text-white transition-colors">开源生态</a>
+        </div>
+
+        <div class="flex items-center gap-4">
+            <a href="#opensource"
+                class="hidden md:block text-sm font-medium text-primary hover:text-sky-400 transition-colors">访问
+                GitHub</a>
+            <a href="#opensource"
+                class="bg-white/10 hover:bg-white/20 border border-white/10 text-white px-5 py-2.5 rounded-xl text-sm font-medium transition-all duration-300 cursor-pointer shadow-[0_0_15px_rgba(14,165,233,0.3)] hover:shadow-[0_0_25px_rgba(14,165,233,0.5)]">
+                加入社区
+            </a>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="relative z-10 pt-32 flex flex-col items-center">
+
+        <!-- Hero Section -->
+        <section
+            class="w-full max-w-7xl mx-auto px-6 min-h-[85vh] flex flex-col items-center justify-center text-center animate-slide-up">
+            <div
+                class="inline-flex items-center gap-2 px-4 py-2 rounded-full glass-panel mb-8 border border-primary/30">
+                <span class="flex w-2 h-2 rounded-full bg-primary animate-pulse"></span>
+                <span class="text-sm font-medium text-primary">xalgo-v1 模型现已开源</span>
+            </div>
+
+            <h1 class="text-5xl md:text-7xl font-bold tracking-tight text-white mb-6 leading-tight max-w-4xl">
+                体验 AI <br class="md:hidden" />
+                <span class="gradient-text">重塑生活日常</span>
+            </h1>
+
+            <p class="text-lg md:text-xl text-slate-400 max-w-2xl mb-12 font-light leading-relaxed">
+                基于前沿自研算法，我们打造了能读懂您的智能戒指、智能眼镜与画框。现在，我们将核心模型开源，邀请全球极客共建万物智联的未来。
+            </p>
+
+            <div class="flex flex-col sm:flex-row items-center gap-4 w-full justify-center">
+                <a href="#opensource"
+                    class="w-full sm:w-auto px-8 py-4 bg-primary hover:bg-sky-500 text-white rounded-xl font-medium tracking-wide transition-all duration-300 shadow-[0_0_20px_rgba(14,165,233,0.4)] hover:shadow-[0_0_30px_rgba(14,165,233,0.6)] flex items-center justify-center gap-2 group cursor-pointer">
+                    <span>参与开源共建</span>
+                    <svg class="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24"
+                        stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                    </svg>
+                </a>
+                <a href="#hardware"
+                    class="w-full sm:w-auto px-8 py-4 glass-panel hover:bg-white/10 text-white rounded-xl font-medium tracking-wide transition-all duration-300 flex items-center justify-center cursor-pointer">
+                    探索智能硬件
+                </a>
+            </div>
+
+            <!-- Social Proof / Trusted By -->
+            <div class="mt-24 w-full border-t border-white/5 pt-10 animate-fade-in" style="animation-delay: 0.5s;">
+                <p class="text-sm font-medium text-slate-500 mb-6 uppercase tracking-widest">已有 10,000+ 开发者加入我们的生态</p>
+                <div
+                    class="flex flex-wrap justify-center gap-8 md:gap-16 opacity-50 grayscale hover:grayscale-0 transition-all duration-500 cursor-default">
+                    <!-- Placeholder logos using Lucide / SVGs for clean look -->
+                    <div class="flex items-center gap-2"><svg class="w-6 h-6" viewBox="0 0 24 24" fill="currentColor">
+                            <path
+                                d="M12 2C6.477 2 2 6.477 2 12c0 4.42 2.865 8.166 6.839 9.489.5.092.682-.217.682-.482 0-.237-.008-.866-.013-1.699-2.782.603-3.369-1.34-3.369-1.34-.454-1.156-1.11-1.462-1.11-1.462-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.087 2.91.831.092-.646.35-1.086.636-1.336-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.269 2.75 1.025A9.578 9.578 0 0112 6.836c.85.004 1.705.114 2.504.336 1.909-1.294 2.747-1.025 2.747-1.025.546 1.377.203 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.842-2.339 4.687-4.566 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.743 0 .267.18.578.688.48C19.138 20.161 22 16.416 22 12c0-5.523-4.477-10-10-10z" />
+                        </svg><span class="font-bold text-lg">GitHub</span></div>
+                    <!-- Using SVG shapes as minimal logos -->
+                    <div class="flex items-center gap-2"><svg class="w-6 h-6" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2">
+                            <rect x="3" y="3" width="18" height="18" rx="2" ry="2" />
+                            <line x1="3" y1="9" x2="21" y2="9" />
+                            <line x1="9" y1="21" x2="9" y2="9" />
+                        </svg><span class="font-bold text-lg tracking-tight">DataTech</span></div>
+                    <div class="flex items-center gap-2"><svg class="w-6 h-6" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2">
+                            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+                        </svg><span class="font-bold text-lg tracking-tight">AILabs</span></div>
+                    <div class="flex items-center gap-2"><svg class="w-6 h-6" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2">
+                            <polygon points="12 2 2 7 12 12 22 7 12 2" />
+                            <polyline points="2 17 12 22 22 17" />
+                            <polyline points="2 12 12 17 22 12" />
+                        </svg><span class="font-bold text-lg tracking-tight">OpenModel</span></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Chapter 1: Hardware Showcase -->
+        <section id="hardware" class="w-full max-w-7xl mx-auto px-6 py-24 border-t border-white/5">
+            <div class="text-center mb-16">
+                <span class="text-primary font-medium tracking-wider text-sm uppercase">Smart Hardware</span>
+                <h2 class="text-3xl md:text-5xl font-bold text-white mt-4 mb-6">无感交互的载体</h2>
+                <p class="text-slate-400 max-w-2xl mx-auto text-lg">我们不只是做算法。为了让 AI 真正融入生活，我们重构了硬件形态，打造极致的计算载体。</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Smart Ring -->
+                <div class="glass-card rounded-2xl p-8 flex flex-col items-start relative overflow-hidden group">
+                    <div
+                        class="absolute inset-0 bg-gradient-to-br from-primary/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                    </div>
+                    <div
+                        class="w-12 h-12 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center mb-6 text-primary">
+                        <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                            <circle cx="12" cy="12" r="8" />
+                            <circle cx="12" cy="12" r="3" />
+                        </svg>
+                    </div>
+                    <h3 class="text-2xl font-bold text-white mb-3">xRing 智能戒指</h3>
+                    <p class="text-slate-400 mb-6 flex-grow">指尖的微型算力中心。全天候生命体征监测，结合端侧手势识别算法，让指尖微动即可掌控全局。</p>
+                    <ul class="text-sm text-slate-300 space-y-2">
+                        <li class="flex items-center gap-2"><svg class="w-4 h-4 text-primary" fill="none"
+                                viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M5 13l4 4L19 7" />
+                            </svg> 超低功耗毫秒级响应</li>
+                        <li class="flex items-center gap-2"><svg class="w-4 h-4 text-primary" fill="none"
+                                viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M5 13l4 4L19 7" />
+                            </svg> 端侧持续学习引擎</li>
+                        <li class="flex items-center gap-2"><svg class="w-4 h-4 text-primary" fill="none"
+                                viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M5 13l4 4L19 7" />
+                            </svg> 医用级体征传感</li>
+                    </ul>
+                </div>
+
+                <!-- Smart Glasses -->
+                <div class="glass-card rounded-2xl p-8 flex flex-col items-start relative overflow-hidden group">
+                    <div
+                        class="absolute inset-0 bg-gradient-to-br from-indigo-500/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                    </div>
+                    <div
+                        class="w-12 h-12 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center mb-6 text-indigo-400">
+                        <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                            <path d="M4 12h16M4 12a4 4 0 0 1 4-4h8a4 4 0 0 1 4 4M4 12a4 4 0 0 0 4 4h8a4 4 0 0 0 4-4" />
+                            <circle cx="8" cy="12" r="2" />
+                            <circle cx="16" cy="12" r="2" />
+                        </svg>
+                    </div>
+                    <h3 class="text-2xl font-bold text-white mb-3">xVision 智能眼镜</h3>
+                    <p class="text-slate-400 mb-6 flex-grow">所见即所得的 AI 助手。搭载自研轻量级视觉大模型，实时解析现实世界，提供增强现实交互。</p>
+                    <ul class="text-sm text-slate-300 space-y-2">
+                        <li class="flex items-center gap-2"><svg class="w-4 h-4 text-indigo-400" fill="none"
+                                viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M5 13l4 4L19 7" />
+                            </svg> 即时物体识别分析</li>
+                        <li class="flex items-center gap-2"><svg class="w-4 h-4 text-indigo-400" fill="none"
+                                viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M5 13l4 4L19 7" />
+                            </svg> 多模态音频辅助</li>
+                        <li class="flex items-center gap-2"><svg class="w-4 h-4 text-indigo-400" fill="none"
+                                viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M5 13l4 4L19 7" />
+                            </svg> 仅重 42g 轻量化设计</li>
+                    </ul>
+                </div>
+
+                <!-- Smart Frame -->
+                <div class="glass-card rounded-2xl p-8 flex flex-col items-start relative overflow-hidden group">
+                    <div
+                        class="absolute inset-0 bg-gradient-to-br from-emerald-500/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                    </div>
+                    <div
+                        class="w-12 h-12 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center mb-6 text-emerald-400">
+                        <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                            <rect x="3" y="3" width="18" height="18" rx="2" ry="2" />
+                            <circle cx="8.5" cy="8.5" r="1.5" />
+                            <polyline points="21 15 16 10 5 21" />
+                        </svg>
+                    </div>
+                    <h3 class="text-2xl font-bold text-white mb-3">xFrame 智能画框</h3>
+                    <p class="text-slate-400 mb-6 flex-grow">打破虚实边界的艺术。根据环境氛围与对话历史，使用扩散模型实时生成情绪匹配的艺术画作。</p>
+                    <ul class="text-sm text-slate-300 space-y-2">
+                        <li class="flex items-center gap-2"><svg class="w-4 h-4 text-emerald-400" fill="none"
+                                viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M5 13l4 4L19 7" />
+                            </svg> 边缘计算实时生图</li>
+                        <li class="flex items-center gap-2"><svg class="w-4 h-4 text-emerald-400" fill="none"
+                                viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M5 13l4 4L19 7" />
+                            </svg> 环境光自适应引擎</li>
+                        <li class="flex items-center gap-2"><svg class="w-4 h-4 text-emerald-400" fill="none"
+                                viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M5 13l4 4L19 7" />
+                            </svg> 超清防眩光显示</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Chapter 2: Algorithm Engine -->
+        <section id="algorithms" class="w-full relative py-24 mb-24 mt-12">
+            <!-- Background element for full width -->
+            <div
+                class="absolute inset-0 bg-gradient-to-br from-slate-900 via-[#040D1A] to-slate-900 border-y border-white/5 mix-blend-screen shadow-[inset_0_4px_30px_rgba(0,0,0,0.5)]">
+            </div>
+
+            <div class="relative max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+                <div>
+                    <span class="text-primary font-medium tracking-wider text-sm uppercase">xalgo.engine</span>
+                    <h2 class="text-3xl md:text-5xl font-bold text-white mt-4 mb-6 leading-tight">端云协同的<br />自研大模型引擎
+                    </h2>
+                    <p class="text-slate-400 text-lg mb-8">硬件的美妙在于其背后的灵魂。我们为算力受限的智能穿戴设备，重头研发了极致轻量化的 Transformer
+                        架构变体，让复杂的 AI 推理在指尖顺畅运行。</p>
+
+                    <div class="space-y-6">
+                        <div class="flex items-start gap-4">
+                            <div
+                                class="mt-1 w-10 h-10 rounded-lg glass-panel flex flex-shrink-0 items-center justify-center text-primary">
+                                <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"
+                                    stroke-width="2">
+                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                        d="M13 10V3L4 14h7v7l9-11h-7z" />
+                                </svg>
+                            </div>
+                            <div>
+                                <h4 class="text-white font-bold text-lg">微模型推理加速框架</h4>
+                                <p class="text-slate-400 text-sm mt-1">支持 INT4 极限量化，在 100MHz 主频的 MCU 上实现毫秒级语音/手势分类响应。
+                                </p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-4">
+                            <div
+                                class="mt-1 w-10 h-10 rounded-lg glass-panel flex flex-shrink-0 items-center justify-center text-indigo-400">
+                                <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"
+                                    stroke-width="2">
+                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                        d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9" />
+                                </svg>
+                            </div>
+                            <div>
+                                <h4 class="text-white font-bold text-lg">多模态云端协同调度</h4>
+                                <p class="text-slate-400 text-sm mt-1">复杂视觉理解任务无缝上云，端侧实现特征提取压缩，数据传输带宽降低 85%。</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-4">
+                            <div
+                                class="mt-1 w-10 h-10 rounded-lg glass-panel flex flex-shrink-0 items-center justify-center text-emerald-400">
+                                <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"
+                                    stroke-width="2">
+                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                        d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                                </svg>
+                            </div>
+                            <div>
+                                <h4 class="text-white font-bold text-lg">边缘端持续学习免遗忘</h4>
+                                <p class="text-slate-400 text-sm mt-1">结合自研记忆网络，设备能根据用户习惯进行千人千面的适应性微调保护隐私。</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Abstract Code / Flow Representation -->
+                <div
+                    class="glass-card rounded-2xl p-6 h-full min-h-[400px] flex items-center justify-center relative overflow-hidden">
+                    <div
+                        class="absolute inset-0 opacity-20 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAiIGhlaWdodD0iMjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGNpcmNsZSBjeD0iMSIgY3k9IjEiIHI9IjEiIGZpbGw9InJnYmEoMjU1LDI1NSwyNTUsMC44KSIvPjwvc3ZnPg==')] [background-size:24px_24px]">
+                    </div>
+                    <div class="relative w-full z-10 flex flex-col gap-4">
+                        <div
+                            class="p-4 rounded-xl bg-slate-800/80 border border-slate-700/50 shadow-lg text-sm text-slate-300 font-mono flex items-center gap-3 w-4/5 transform -rotate-2 hover:rotate-0 transition-all duration-300">
+                            <div
+                                class="w-8 h-8 rounded-full bg-slate-900 border border-slate-700 flex items-center justify-center text-primary">
+                                <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z" />
+                                </svg>
+                            </div>
+                            <div class="flex-grow">
+                                <div class="flex justify-between text-xs mb-1"><span class="text-emerald-400">Local
+                                        Inference</span><span class="text-slate-500">2ms</span></div>
+                                <div class="h-1.5 w-full bg-slate-900 rounded-full overflow-hidden">
+                                    <div class="h-full bg-emerald-400 w-full animate-pulse"></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div
+                            class="p-4 rounded-xl bg-slate-800/80 border border-slate-700/50 shadow-lg text-sm text-slate-300 font-mono flex items-center gap-3 w-4/5 self-end transform rotate-2 hover:rotate-0 transition-all duration-300">
+                            <div class="flex-grow">
+                                <div class="flex justify-between text-xs mb-1"><span class="text-primary">Cloud
+                                        Syncing</span><span class="text-slate-500">120ms</span></div>
+                                <div class="h-1.5 w-full bg-slate-900 rounded-full overflow-hidden">
+                                    <div class="h-full bg-primary w-3/4"></div>
+                                </div>
+                            </div>
+                            <div
+                                class="w-8 h-8 rounded-full bg-slate-900 border border-slate-700 flex items-center justify-center text-primary">
+                                <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M3 15a4 4 0 004 4h9a5 5 0 10-.1-9.999 5.002 5.002 0 10-9.78 2.096A4.001 4.001 0 003 15z" />
+                                </svg>
+                            </div>
+                        </div>
+
+                        <div
+                            class="p-4 rounded-xl bg-primary/10 border border-primary/30 shadow-[0_0_20px_rgba(14,165,233,0.2)] text-sm text-white font-mono flex flex-col gap-2 w-11/12 mx-auto mt-2 transform hover:scale-105 transition-all duration-300 cursor-pointer">
+                            <div class="flex items-center gap-2">
+                                <span class="text-primary">import</span> <span>xalgo_core</span> <span
+                                    class="text-primary">as</span> <span>xc</span>
+                            </div>
+                            <div class="flex items-center gap-2 text-slate-400">
+                                <span>model = xc.load_model("gesture_int4")</span>
+                            </div>
+                            <div class="flex items-center gap-2 text-emerald-400">
+                                <span>// Accuracy: 99.2%, RAM: 1.2MB</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Chapter 3: Open Source Call to Action -->
+        <section id="opensource" class="w-full max-w-5xl mx-auto px-6 mb-32 text-center">
+            <div class="glass-card rounded-[2rem] p-10 md:p-20 relative overflow-hidden">
+                <!-- Inner glow -->
+                <div
+                    class="absolute inset-0 bg-gradient-to-b from-primary/20 via-transparent to-transparent opacity-50">
+                </div>
+
+                <div class="relative z-10 flex flex-col items-center">
+                    <div class="w-16 h-16 rounded-2xl glass-panel bg-white/10 flex items-center justify-center mb-8">
+                        <svg class="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 24 24">
+                            <path fill-rule="evenodd"
+                                d="M12 2C6.477 2 2 6.477 2 12c0 4.42 2.87 8.17 6.84 9.5.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34-.46-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .08 1.53 1.04 1.53 1.04.87 1.52 2.34 1.07 2.91.83.09-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.92 0-1.11.38-2 1.03-2.71-.1-.25-.45-1.29.1-2.64 0 0 .84-.27 2.75 1.02.79-.22 1.65-.33 2.5-.33.85 0 1.71.11 2.5.33 1.91-1.29 2.75-1.02 2.75-1.02.55 1.35.2 2.39.1 2.64.65.71 1.03 1.6 1.03 2.71 0 3.82-2.34 4.66-4.57 4.91.36.31.69.92.69 1.85V21c0 .27.16.59.67.5C19.14 20.16 22 16.42 22 12A10 10 0 0012 2z"
+                                clip-rule="evenodd" />
+                        </svg>
+                    </div>
+
+                    <h2 class="text-4xl md:text-5xl font-bold text-white mb-6">封闭的算法属于过去<br />开源的算力决定未来</h2>
+                    <p class="text-slate-400 text-lg md:text-xl max-w-2xl mx-auto mb-10 leading-relaxed">
+                        我们坚信，最好的 AI 应该让更多人触手可及。xalgo 核心模型库现已在 GitHub 上基于 Apache 2.0 协议全面开源。<br />加入我们，一起编写万物互联的下一行代码。
+                    </p>
+
+                    <div class="flex flex-col sm:flex-row gap-4">
+                        <a href="https://github.com/xalgo" target="_blank"
+                            class="px-8 py-4 bg-white text-slate-900 rounded-xl font-bold tracking-wide transition-all duration-300 hover:scale-105 shadow-xl hover:shadow-2xl flex items-center justify-center gap-3 cursor-pointer">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                                <path fill-rule="evenodd"
+                                    d="M12 2C6.477 2 2 6.477 2 12c0 4.42 2.87 8.17 6.84 9.5.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34-.46-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .08 1.53 1.04 1.53 1.04.87 1.52 2.34 1.07 2.91.83.09-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.92 0-1.11.38-2 1.03-2.71-.1-.25-.45-1.29.1-2.64 0 0 .84-.27 2.75 1.02.79-.22 1.65-.33 2.5-.33.85 0 1.71.11 2.5.33 1.91-1.29 2.75-1.02 2.75-1.02.55 1.35.2 2.39.1 2.64.65.71 1.03 1.6 1.03 2.71 0 3.82-2.34 4.66-4.57 4.91.36.31.69.92.69 1.85V21c0 .27.16.59.67.5C19.14 20.16 22 16.42 22 12A10 10 0 0012 2z"
+                                    clip-rule="evenodd" />
+                            </svg>
+                            View on GitHub
+                        </a>
+                        <a href="#"
+                            class="px-8 py-4 glass-panel text-white hover:bg-white/10 rounded-xl font-medium transition-all duration-300 flex items-center justify-center cursor-pointer">
+                            阅读技术文档
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="w-full border-t border-white/10 mt-auto py-12 relative z-10 bg-[#040D1A]/80 backdrop-blur-xl">
+            <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div class="col-span-1 md:col-span-1">
+                    <div class="flex items-center mb-6 bg-white/90 px-3 py-2 rounded-xl shadow-sm w-fit">
+                        <img src="./logo.png" alt="xalgo logo"
+                            class="h-5 object-contain opacity-90 hover:opacity-100 transition-opacity" />
+                    </div>
+                    <p class="text-sm text-slate-500">体验 AI 重塑生活日常。<br />让算法以硬件为载体，真正服务于人。</p>
+                </div>
+
+                <div>
+                    <h4 class="text-white font-bold mb-4">产品</h4>
+                    <ul class="space-y-2 text-sm text-slate-400">
+                        <li><a href="#" class="hover:text-primary transition-colors">xRing 智能戒指</a></li>
+                        <li><a href="#" class="hover:text-primary transition-colors">xVision 智能眼镜</a></li>
+                        <li><a href="#" class="hover:text-primary transition-colors">xFrame 智能画框</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="text-white font-bold mb-4">资源</h4>
+                    <ul class="space-y-2 text-sm text-slate-400">
+                        <li><a href="#" class="hover:text-primary transition-colors">GitHub 仓库</a></li>
+                        <li><a href="#" class="hover:text-primary transition-colors">算法文档</a></li>
+                        <li><a href="#" class="hover:text-primary transition-colors">开发者博客</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="text-white font-bold mb-4">联系我们</h4>
+                    <ul class="space-y-2 text-sm text-slate-400">
+                        <li><a href="#" class="hover:text-primary transition-colors">合作咨询</a></li>
+                        <li><a href="#" class="hover:text-primary transition-colors">加入团队</a></li>
+                        <li><a href="#" class="hover:text-primary transition-colors">Twitter (X)</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div
+                class="max-w-7xl mx-auto px-6 mt-12 pt-8 border-t border-white/5 flex flex-col md:flex-row items-center justify-between text-xs text-slate-600">
+                <p>&copy; 2026 xalgo.ai. All rights reserved.</p>
+                <div class="flex gap-4 mt-4 md:mt-0">
+                    <a href="#" class="hover:text-slate-400">隐私政策</a>
+                    <a href="#" class="hover:text-slate-400">服务条款</a>
+                </div>
+            </div>
+        </footer>
+
+    </main>
+</body>
+
+</html>
