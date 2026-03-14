@@ -144,26 +144,25 @@
     <nav class="fixed top-6 left-6 right-6 z-50 max-w-6xl mx-auto">
         <div class="glass-panel rounded-2xl px-8 py-4 flex items-center justify-between">
             <div class="flex items-center">
-                <!-- XALGO Logo: X ∧ L G O 等间距 -->
-                <div class="flex items-center gap-3">
-                    <!-- X -->
-                    <span class="text-2xl font-light text-white">X</span>
-                    <!-- ∧ -->
-                    <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <path d="M4 6 L12 20 L20 6" transform="rotate(180 12 13)"/>
-                    </svg>
-                    <!-- L -->
-                    <span class="text-2xl font-light text-white">L</span>
-                    <!-- G -->
-                    <span class="text-2xl font-light text-white">G</span>
-                    <!-- O: 白外环 + 金内环 -->
-                    <div class="relative w-6 h-6">
-                        <svg class="w-full h-full" viewBox="0 0 32 32" fill="none">
-                            <circle cx="16" cy="16" r="14" stroke="white" stroke-width="2" fill="none"/>
-                            <circle cx="16" cy="16" r="8" stroke="#C9A962" stroke-width="2" fill="none"/>
-                        </svg>
-                    </div>
-                </div>
+                <!-- XALGO Logo SVG -->
+                <svg width="110" height="25" viewBox="0 0 220 50" xmlns="http://www.w3.org/2000/svg" class="opacity-90">
+                    <g fill="none" stroke="#FFFFFF" stroke-width="2" stroke-linecap="butt" stroke-linejoin="miter">
+                        <!-- X：科技断点风 -->
+                        <path d="M 10 10 L 40 40" />
+                        <path d="M 40 10 L 29 21" />
+                        <path d="M 10 40 L 21 29" />
+                        <!-- A：无横线极简风 -->
+                        <path d="M 52 40 L 68 10 L 84 40" />
+                        <!-- L -->
+                        <path d="M 96 10 L 96 40 L 118 40" />
+                        <!-- G：完美正圆弧 -->
+                        <path d="M 155 14 A 15 15 0 1 0 155 36 L 155 25 L 143 25" />
+                        <!-- O (外圈) -->
+                        <circle cx="187" cy="25" r="15" />
+                    </g>
+                    <!-- O (内圈) -->
+                    <circle cx="187" cy="25" r="11" fill="none" stroke="#C5A880" stroke-width="1.5" />
+                </svg>
             </div>
 
             <div class="hidden md:flex items-center gap-10">
@@ -519,20 +518,26 @@
         <footer class="w-full border-t border-white/[0.06] mt-auto py-16 relative z-10 bg-background">
             <div class="max-w-6xl mx-auto px-6 grid grid-cols-1 md:grid-cols-4 gap-12">
                 <div class="col-span-1 md:col-span-1">
-                    <div class="flex items-center gap-2 mb-6">
-                        <!-- XALGO Logo: X ∧ L G O 等间距 -->
-                        <span class="text-base font-light text-[#A0A0A0]">X</span>
-                        <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="#A0A0A0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M4 6 L12 20 L20 6" transform="rotate(180 12 13)"/>
+                    <div class="flex items-center mb-6">
+                        <!-- XALGO Logo SVG -->
+                        <svg width="88" height="20" viewBox="0 0 220 50" xmlns="http://www.w3.org/2000/svg" class="opacity-70">
+                            <g fill="none" stroke="#A0A0A0" stroke-width="2" stroke-linecap="butt" stroke-linejoin="miter">
+                                <!-- X：科技断点风 -->
+                                <path d="M 10 10 L 40 40" />
+                                <path d="M 40 10 L 29 21" />
+                                <path d="M 10 40 L 21 29" />
+                                <!-- A：无横线极简风 -->
+                                <path d="M 52 40 L 68 10 L 84 40" />
+                                <!-- L -->
+                                <path d="M 96 10 L 96 40 L 118 40" />
+                                <!-- G：完美正圆弧 -->
+                                <path d="M 155 14 A 15 15 0 1 0 155 36 L 155 25 L 143 25" />
+                                <!-- O (外圈) -->
+                                <circle cx="187" cy="25" r="15" />
+                            </g>
+                            <!-- O (内圈) -->
+                            <circle cx="187" cy="25" r="11" fill="none" stroke="#C5A880" stroke-width="1.5" />
                         </svg>
-                        <span class="text-base font-light text-[#A0A0A0]">L</span>
-                        <span class="text-base font-light text-[#A0A0A0]">G</span>
-                        <div class="relative w-4 h-4">
-                            <svg class="w-full h-full" viewBox="0 0 32 32" fill="none">
-                                <circle cx="16" cy="16" r="14" stroke="#A0A0A0" stroke-width="2" fill="none"/>
-                                <circle cx="16" cy="16" r="8" stroke="#C9A962" stroke-width="2" fill="none"/>
-                            </svg>
-                        </div>
                     </div>
                     <p class="text-sm text-[#4A4A4A] leading-relaxed">体验 AI 重塑生活日常。<br />让算法以硬件为载体，真正服务于人。</p>
                 </div>
