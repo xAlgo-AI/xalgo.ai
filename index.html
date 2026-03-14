@@ -520,24 +520,27 @@
                 <div class="col-span-1 md:col-span-1">
                     <div class="flex items-center mb-6">
                         <!-- XALGO Logo SVG -->
-                        <svg width="88" height="20" viewBox="0 0 220 50" xmlns="http://www.w3.org/2000/svg" class="opacity-70">
-                            <g fill="none" stroke="#A0A0A0" stroke-width="2" stroke-linecap="butt" stroke-linejoin="miter">
-                                <!-- X：科技断点风 -->
-                                <path d="M 10 10 L 40 40" />
-                                <path d="M 40 10 L 29 21" />
-                                <path d="M 10 40 L 21 29" />
-                                <!-- A：无横线极简风 -->
-                                <path d="M 52 40 L 68 10 L 84 40" />
-                                <!-- L -->
-                                <path d="M 96 10 L 96 40 L 118 40" />
-                                <!-- G：完美正圆弧 -->
-                                <path d="M 155 14 A 15 15 0 1 0 155 36 L 155 25 L 143 25" />
-                                <!-- O (外圈) -->
-                                <circle cx="187" cy="25" r="15" />
-                            </g>
-                            <!-- O (内圈) -->
-                            <circle cx="187" cy="25" r="11" fill="none" stroke="#C5A880" stroke-width="1.5" />
-                        </svg>
+                            <svg width="220" height="50" viewBox="0 0 220 50" xmlns="http://www.w3.org/2000/svg">
+                                <g fill="none" stroke="#FFFFFF" stroke-width="2" stroke-linecap="butt" stroke-linejoin="miter">
+                                    <!-- 【缩小断点的 X】 -->
+                                    <!-- 1. 主对角线（保持贯穿） -->
+                                    <path d="M 10 10 L 40 40" />
+                                    <!-- 2. 副对角线上半段（大幅向中心靠拢，从 29,21 延长到 27,23） -->
+                                    <path d="M 40 10 L 27 23" />
+                                    <!-- 3. 副对角线下半段（大幅向中心靠拢，从 21,29 延长到 23,27） -->
+                                    <path d="M 10 40 L 23 27" />
+                                    <!-- A -->
+                                    <path d="M 52 40 L 68 10 L 84 40" />
+                                    <!-- L -->
+                                    <path d="M 96 10 L 96 40 L 118 40" />
+                                    <!-- G -->
+                                    <path d="M 155 14 A 15 15 0 1 0 155 36 L 155 25 L 143 25" />
+                                    <!-- O (外圈) -->
+                                    <circle cx="187" cy="25" r="15" />
+                                </g>
+                                <!-- O (内圈：保持紧凑比例) -->
+                                <circle cx="187" cy="25" r="11" fill="none" stroke="#C5A880" stroke-width="1.5" />
+                            </svg>
                     </div>
                     <p class="text-sm text-[#4A4A4A] leading-relaxed">体验 AI 重塑生活日常。<br />让算法以硬件为载体，真正服务于人。</p>
                 </div>
