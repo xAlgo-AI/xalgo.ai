@@ -172,22 +172,23 @@
             </div>
 
             <div class="flex items-center gap-4">
-                <a href="#opensource" class="hidden md:block text-sm font-medium text-primary hover:text-secondary transition-colors tracking-wide" data-i18n="nav.github">GitHub</a>
                 <a href="#opensource" class="btn-secondary px-5 py-2.5 rounded-xl text-sm font-medium tracking-wide" data-i18n="nav.community">
                     加入社区
                 </a>
                 <!-- Language Switcher -->
-                <div class="relative group">
-                    <button class="flex items-center gap-1 text-sm font-medium text-primary hover:text-secondary transition-colors tracking-wide">
+                <div class="relative" id="lang-switcher">
+                    <button id="lang-btn" class="flex items-center gap-1 text-sm font-medium text-primary hover:text-secondary transition-colors tracking-wide px-2 py-1 rounded-lg hover:bg-white/5">
                         <span id="current-lang">ZH</span>
-                        <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <svg class="w-4 h-4 transition-transform" id="lang-arrow" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
                         </svg>
                     </button>
-                    <div class="absolute right-0 mt-2 w-32 glass-card rounded-xl overflow-hidden hidden group-hover:block z-50 border border-white/[0.08]">
-                        <button onclick="setLanguage('en')" class="w-full px-4 py-2.5 text-sm text-left text-[#A0A0A0] hover:text-[#FAFAFA] hover:bg-white/5 transition-colors flex items-center gap-2" data-i18n="lang.en">English</button>
-                        <button onclick="setLanguage('zh')" class="w-full px-4 py-2.5 text-sm text-left text-[#A0A0A0] hover:text-[#FAFAFA] hover:bg-white/5 transition-colors flex items-center gap-2" data-i18n="lang.zh">简体中文</button>
-                        <button onclick="setLanguage('ja')" class="w-full px-4 py-2.5 text-sm text-left text-[#A0A0A0] hover:text-[#FAFAFA] hover:bg-white/5 transition-colors flex items-center gap-2" data-i18n="lang.ja">日本語</button>
+                    <div id="lang-menu" class="absolute right-0 top-full pt-2 opacity-0 invisible transition-all duration-200 z-50">
+                        <div class="glass-card rounded-xl overflow-hidden border border-white/[0.08] shadow-xl min-w-[120px]">
+                            <button onclick="setLanguage('en'); toggleLangMenu()" class="w-full px-4 py-2.5 text-sm text-left text-[#A0A0A0] hover:text-[#FAFAFA] hover:bg-white/5 transition-colors flex items-center gap-2" data-i18n="lang.en">English</button>
+                            <button onclick="setLanguage('zh'); toggleLangMenu()" class="w-full px-4 py-2.5 text-sm text-left text-[#A0A0A0] hover:text-[#FAFAFA] hover:bg-white/5 transition-colors flex items-center gap-2" data-i18n="lang.zh">简体中文</button>
+                            <button onclick="setLanguage('ja'); toggleLangMenu()" class="w-full px-4 py-2.5 text-sm text-left text-[#A0A0A0] hover:text-[#FAFAFA] hover:bg-white/5 transition-colors flex items-center gap-2" data-i18n="lang.ja">日本語</button>
+                        </div>
                     </div>
                 </div>
             </div>

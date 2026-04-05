@@ -338,6 +338,47 @@ function updateContent(lang) {
   });
 }
 
+// Language switcher dropdown toggle
+let langMenuOpen = false;
+
+function toggleLangMenu() {
+  const menu = document.getElementById('lang-menu');
+  const arrow = document.getElementById('lang-arrow');
+  
+  if (!menu) return;
+  
+  langMenuOpen = !langMenuOpen;
+  
+  if (langMenuOpen) {
+    menu.classList.remove('opacity-0', 'invisible');
+    menu.classList.add('opacity-100', 'visible');
+    if (arrow) arrow.style.transform = 'rotate(180deg)';
+  } else {
+    menu.classList.add('opacity-0', 'invisible');
+    menu.classList.remove('opacity-100', 'visible');
+    if (arrow) arrow.style.transform = 'rotate(0deg)';
+  }
+}
+
+// Close menu when clicking outside
+document.addEventListener('click', function(e) {
+  const switcher = document.getElementById('lang-switcher');
+  if (switcher && !switcher.contains(e.target) && langMenuOpen) {
+    toggleLangMenu();
+  }
+});
+
+// Initialize language switcher
+document.addEventListener('DOMContentLoaded', function() {
+  const langBtn = document.getElementById('lang-btn');
+  if (langBtn) {
+    langBtn.addEventListener('click', function(e) {
+      e.stopPropagation();
+      toggleLangMenu();
+    });
+  }
+});
+
 // Initialize i18n on page load
 function initI18n() {
   const lang = detectLanguage();
