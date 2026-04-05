@@ -319,6 +319,36 @@ function setLanguage(lang) {
   updateContent(lang);
 }
 
+// Typewriter Effect
+let currentTypewriterTimeout = null;
+let isTyping = false;
+
+function typeWriterEffect(element, text, speed = 60) {
+  // Clear any ongoing typing
+  if (currentTypewriterTimeout) {
+    clearTimeout(currentTypewriterTimeout);
+    currentTypewriterTimeout = null;
+  }
+  
+  isTyping = true;
+  element.textContent = '';
+  
+  let i = 0;
+  function typeChar() {
+    if (i < text.length) {
+      element.textContent += text.charAt(i);
+      i++;
+      currentTypewriterTimeout = setTimeout(typeChar, speed);
+    } else {
+      isTyping = false;
+      currentTypewriterTimeout = null;
+    }
+  }
+  
+  // Delay before starting typewriter effect
+  setTimeout(typeChar, 400);
+}
+
 // Update all translatable content
 function updateContent(lang) {
   const elements = document.querySelectorAll('[data-i18n]');
@@ -328,6 +358,12 @@ function updateContent(lang) {
     const translation = translations[lang]?.[key];
     
     if (translation !== undefined) {
+      // Skip typewriter elements - they are handled separately
+      if (el.classList.contains('typewriter-text')) {
+        typeWriterEffect(el, translation, 70);
+        return;
+      }
+      
       // Handle multiline text (split by \n and create <br> tags)
       if (translation.includes('\n')) {
         el.innerHTML = translation.replace(/\n/g, '<br />');
