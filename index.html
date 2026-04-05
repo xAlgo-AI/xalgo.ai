@@ -166,16 +166,30 @@
             </div>
 
             <div class="hidden md:flex items-center gap-10">
-                <a href="#hardware" class="text-sm font-medium text-[#A0A0A0] hover:text-[#FAFAFA] transition-colors tracking-wide">硬件产品</a>
-                <a href="#algorithms" class="text-sm font-medium text-[#A0A0A0] hover:text-[#FAFAFA] transition-colors tracking-wide">核心算法</a>
-                <a href="#opensource" class="text-sm font-medium text-[#A0A0A0] hover:text-[#FAFAFA] transition-colors tracking-wide">开源生态</a>
+                <a href="#hardware" class="text-sm font-medium text-[#A0A0A0] hover:text-[#FAFAFA] transition-colors tracking-wide" data-i18n="nav.hardware">硬件产品</a>
+                <a href="#algorithms" class="text-sm font-medium text-[#A0A0A0] hover:text-[#FAFAFA] transition-colors tracking-wide" data-i18n="nav.algorithms">核心算法</a>
+                <a href="#opensource" class="text-sm font-medium text-[#A0A0A0] hover:text-[#FAFAFA] transition-colors tracking-wide" data-i18n="nav.opensource">开源生态</a>
             </div>
 
             <div class="flex items-center gap-4">
-                <a href="#opensource" class="hidden md:block text-sm font-medium text-primary hover:text-secondary transition-colors tracking-wide">GitHub</a>
-                <a href="#opensource" class="btn-secondary px-5 py-2.5 rounded-xl text-sm font-medium tracking-wide">
+                <a href="#opensource" class="hidden md:block text-sm font-medium text-primary hover:text-secondary transition-colors tracking-wide" data-i18n="nav.github">GitHub</a>
+                <a href="#opensource" class="btn-secondary px-5 py-2.5 rounded-xl text-sm font-medium tracking-wide" data-i18n="nav.community">
                     加入社区
                 </a>
+                <!-- Language Switcher -->
+                <div class="relative group">
+                    <button class="flex items-center gap-1 text-sm font-medium text-primary hover:text-secondary transition-colors tracking-wide">
+                        <span id="current-lang">ZH</span>
+                        <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                        </svg>
+                    </button>
+                    <div class="absolute right-0 mt-2 w-32 glass-card rounded-xl overflow-hidden hidden group-hover:block z-50 border border-white/[0.08]">
+                        <button onclick="setLanguage('en')" class="w-full px-4 py-2.5 text-sm text-left text-[#A0A0A0] hover:text-[#FAFAFA] hover:bg-white/5 transition-colors flex items-center gap-2" data-i18n="lang.en">English</button>
+                        <button onclick="setLanguage('zh')" class="w-full px-4 py-2.5 text-sm text-left text-[#A0A0A0] hover:text-[#FAFAFA] hover:bg-white/5 transition-colors flex items-center gap-2" data-i18n="lang.zh">简体中文</button>
+                        <button onclick="setLanguage('ja')" class="w-full px-4 py-2.5 text-sm text-left text-[#A0A0A0] hover:text-[#FAFAFA] hover:bg-white/5 transition-colors flex items-center gap-2" data-i18n="lang.ja">日本語</button>
+                    </div>
+                </div>
             </div>
         </div>
     </nav>
@@ -188,36 +202,36 @@
             <!-- Tag -->
             <div class="inline-flex items-center gap-3 px-5 py-2.5 rounded-full glass-panel mb-10 border border-primary/20">
                 <span class="flex w-2 h-2 rounded-full bg-primary"></span>
-                <span class="text-sm font-medium text-primary tracking-wide">xalgo-v1 模型现已开源</span>
+                <span class="text-sm font-medium text-primary tracking-wide" data-i18n="hero.tag">xalgo-v1 模型现已开源</span>
             </div>
 
             <!-- Main Title -->
             <h1 class="text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight text-[#FAFAFA] mb-8 leading-[1.1] max-w-4xl">
-                体验 AI <br class="md:hidden" />
-                <span class="gradient-text">重塑生活日常</span>
+                <span data-i18n="hero.title">体验 AI</span> <br class="md:hidden" />
+                <span class="gradient-text" data-i18n="hero.titleHighlight">重塑生活日常</span>
             </h1>
 
             <!-- Subtitle -->
-            <p class="text-lg md:text-xl text-[#6A6A6A] max-w-2xl mb-14 font-normal leading-relaxed">
+            <p class="text-lg md:text-xl text-[#6A6A6A] max-w-2xl mb-14 font-normal leading-relaxed" data-i18n="hero.subtitle">
                 基于前沿自研算法，我们打造了能读懂您的智能戒指、智能眼镜与画框。现在，我们将核心模型开源，邀请全球极客共建万物智联的未来。
             </p>
 
             <!-- CTA Buttons -->
             <div class="flex flex-col sm:flex-row items-center gap-4 w-full justify-center">
                 <a href="#opensource" class="w-full sm:w-auto px-10 py-4 btn-primary rounded-xl font-semibold tracking-wide flex items-center justify-center gap-3 group">
-                    <span>参与开源共建</span>
+                    <span data-i18n="hero.ctaPrimary">参与开源共建</span>
                     <svg class="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3" />
                     </svg>
                 </a>
-                <a href="#hardware" class="w-full sm:w-auto px-10 py-4 btn-secondary rounded-xl font-medium tracking-wide flex items-center justify-center">
+                <a href="#hardware" class="w-full sm:w-auto px-10 py-4 btn-secondary rounded-xl font-medium tracking-wide flex items-center justify-center" data-i18n="hero.ctaSecondary">
                     探索智能硬件
                 </a>
             </div>
 
             <!-- Social Proof -->
             <div class="mt-28 w-full border-t border-white/[0.06] pt-12 animate-fade-in" style="animation-delay: 0.5s;">
-                <p class="text-sm font-medium text-[#4A4A4A] mb-8 uppercase tracking-[0.2em]">已有 10,000+ 开发者加入生态</p>
+                <p class="text-sm font-medium text-[#4A4A4A] mb-8 uppercase tracking-[0.2em]" data-i18n="hero.socialProof">已有 10,000+ 开发者加入生态</p>
                 <div class="flex flex-wrap justify-center gap-10 md:gap-16 opacity-40 grayscale hover:grayscale-0 transition-all duration-700">
                     <div class="flex items-center gap-3">
                         <svg class="w-5 h-5 text-[#FAFAFA]" viewBox="0 0 24 24" fill="currentColor">
@@ -254,9 +268,9 @@
         <!-- Chapter 1: Hardware Showcase -->
         <section id="hardware" class="w-full max-w-6xl mx-auto px-6 py-32 border-t border-white/[0.04]">
             <div class="text-center mb-20">
-                <span class="text-primary font-semibold tracking-[0.2em] text-sm uppercase">Smart Hardware</span>
-                <h2 class="text-4xl md:text-5xl font-bold text-[#FAFAFA] mt-4 mb-6 tracking-tight">无感交互的载体</h2>
-                <p class="text-[#6A6A6A] max-w-2xl mx-auto text-lg font-normal leading-relaxed">我们不只是做算法。为了让 AI 真正融入生活，我们重构了硬件形态，打造极致的计算载体。</p>
+                <span class="text-primary font-semibold tracking-[0.2em] text-sm uppercase" data-i18n="hardware.tag">Smart Hardware</span>
+                <h2 class="text-4xl md:text-5xl font-bold text-[#FAFAFA] mt-4 mb-6 tracking-tight" data-i18n="hardware.title">无感交互的载体</h2>
+                <p class="text-[#6A6A6A] max-w-2xl mx-auto text-lg font-normal leading-relaxed" data-i18n="hardware.subtitle">我们不只是做算法。为了让 AI 真正融入生活，我们重构了硬件形态，打造极致的计算载体。</p>
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -271,27 +285,27 @@
                         </svg>
                     </div>
                     
-                    <h3 class="text-2xl font-bold text-[#FAFAFA] mb-4 tracking-tight">xRing 智能戒指</h3>
-                    <p class="text-[#6A6A6A] mb-8 flex-grow leading-relaxed">指尖的微型算力中心。全天候生命体征监测，结合端侧手势识别算法，让指尖微动即可掌控全局。</p>
+                    <h3 class="text-2xl font-bold text-[#FAFAFA] mb-4 tracking-tight" data-i18n="hardware.ring.name">xRing 智能戒指</h3>
+                    <p class="text-[#6A6A6A] mb-8 flex-grow leading-relaxed" data-i18n="hardware.ring.desc">指尖的微型算力中心。全天候生命体征监测，结合端侧手势识别算法，让指尖微动即可掌控全局。</p>
                     
                     <ul class="text-sm text-[#A0A0A0] space-y-3">
                         <li class="flex items-center gap-3">
                             <svg class="w-4 h-4 text-primary flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                                 <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
                             </svg>
-                            <span>超低功耗毫秒级响应</span>
+                            <span data-i18n="hardware.ring.feature1">超低功耗毫秒级响应</span>
                         </li>
                         <li class="flex items-center gap-3">
                             <svg class="w-4 h-4 text-primary flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                                 <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
                             </svg>
-                            <span>端侧持续学习引擎</span>
+                            <span data-i18n="hardware.ring.feature2">端侧持续学习引擎</span>
                         </li>
                         <li class="flex items-center gap-3">
                             <svg class="w-4 h-4 text-primary flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                                 <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
                             </svg>
-                            <span>医用级体征传感</span>
+                            <span data-i18n="hardware.ring.feature3">医用级体征传感</span>
                         </li>
                     </ul>
                 </div>
@@ -308,27 +322,27 @@
                         </svg>
                     </div>
                     
-                    <h3 class="text-2xl font-bold text-[#FAFAFA] mb-4 tracking-tight">xVision 智能眼镜</h3>
-                    <p class="text-[#6A6A6A] mb-8 flex-grow leading-relaxed">所见即所得的 AI 助手。搭载自研轻量级视觉大模型，实时解析现实世界，提供增强现实交互。</p>
+                    <h3 class="text-2xl font-bold text-[#FAFAFA] mb-4 tracking-tight" data-i18n="hardware.glasses.name">xVision 智能眼镜</h3>
+                    <p class="text-[#6A6A6A] mb-8 flex-grow leading-relaxed" data-i18n="hardware.glasses.desc">所见即所得的 AI 助手。搭载自研轻量级视觉大模型，实时解析现实世界，提供增强现实交互。</p>
                     
                     <ul class="text-sm text-[#A0A0A0] space-y-3">
                         <li class="flex items-center gap-3">
                             <svg class="w-4 h-4 text-primary flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                                 <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
                             </svg>
-                            <span>即时物体识别分析</span>
+                            <span data-i18n="hardware.glasses.feature1">即时物体识别分析</span>
                         </li>
                         <li class="flex items-center gap-3">
                             <svg class="w-4 h-4 text-primary flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                                 <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
                             </svg>
-                            <span>多模态音频辅助</span>
+                            <span data-i18n="hardware.glasses.feature2">多模态音频辅助</span>
                         </li>
                         <li class="flex items-center gap-3">
                             <svg class="w-4 h-4 text-primary flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                                 <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
                             </svg>
-                            <span>仅重 42g 轻量化设计</span>
+                            <span data-i18n="hardware.glasses.feature3">仅重 42g 轻量化设计</span>
                         </li>
                     </ul>
                 </div>
@@ -345,27 +359,27 @@
                         </svg>
                     </div>
                     
-                    <h3 class="text-2xl font-bold text-[#FAFAFA] mb-4 tracking-tight">xFrame 智能画框</h3>
-                    <p class="text-[#6A6A6A] mb-8 flex-grow leading-relaxed">打破虚实边界的艺术。根据环境氛围与对话历史，使用扩散模型实时生成情绪匹配的艺术画作。</p>
+                    <h3 class="text-2xl font-bold text-[#FAFAFA] mb-4 tracking-tight" data-i18n="hardware.frame.name">xFrame 智能画框</h3>
+                    <p class="text-[#6A6A6A] mb-8 flex-grow leading-relaxed" data-i18n="hardware.frame.desc">打破虚实边界的艺术。根据环境氛围与对话历史，使用扩散模型实时生成情绪匹配的艺术画作。</p>
                     
                     <ul class="text-sm text-[#A0A0A0] space-y-3">
                         <li class="flex items-center gap-3">
                             <svg class="w-4 h-4 text-primary flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                                 <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
                             </svg>
-                            <span>边缘计算实时生图</span>
+                            <span data-i18n="hardware.frame.feature1">边缘计算实时生图</span>
                         </li>
                         <li class="flex items-center gap-3">
                             <svg class="w-4 h-4 text-primary flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                                 <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
                             </svg>
-                            <span>环境光自适应引擎</span>
+                            <span data-i18n="hardware.frame.feature2">环境光自适应引擎</span>
                         </li>
                         <li class="flex items-center gap-3">
                             <svg class="w-4 h-4 text-primary flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                                 <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
                             </svg>
-                            <span>超清防眩光显示</span>
+                            <span data-i18n="hardware.frame.feature3">超清防眩光显示</span>
                         </li>
                     </ul>
                 </div>
@@ -379,9 +393,9 @@
 
             <div class="relative max-w-6xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
                 <div>
-                    <span class="text-primary font-semibold tracking-[0.2em] text-sm uppercase">xalgo.engine</span>
-                    <h2 class="text-4xl md:text-5xl font-bold text-[#FAFAFA] mt-4 mb-8 leading-tight tracking-tight">端云协同的<br />自研大模型引擎</h2>
-                    <p class="text-[#6A6A6A] text-lg mb-12 font-normal leading-relaxed">硬件的美妙在于其背后的灵魂。我们为算力受限的智能穿戴设备，重头研发了极致轻量化的 Transformer 架构变体，让复杂的 AI 推理在指尖顺畅运行。</p>
+                    <span class="text-primary font-semibold tracking-[0.2em] text-sm uppercase" data-i18n="algorithms.tag">xalgo.engine</span>
+                    <h2 class="text-4xl md:text-5xl font-bold text-[#FAFAFA] mt-4 mb-8 leading-tight tracking-tight" data-i18n="algorithms.title">端云协同的<br />自研大模型引擎</h2>
+                    <p class="text-[#6A6A6A] text-lg mb-12 font-normal leading-relaxed" data-i18n="algorithms.desc">硬件的美妙在于其背后的灵魂。我们为算力受限的智能穿戴设备，重头研发了极致轻量化的 Transformer 架构变体，让复杂的 AI 推理在指尖顺畅运行。</p>
 
                     <div class="space-y-8">
                         <div class="flex items-start gap-5">
@@ -391,8 +405,8 @@
                                 </svg>
                             </div>
                             <div>
-                                <h4 class="text-[#FAFAFA] font-bold text-lg mb-2 tracking-tight">微模型推理加速框架</h4>
-                                <p class="text-[#6A6A6A] text-sm leading-relaxed">支持 INT4 极限量化，在 100MHz 主频的 MCU 上实现毫秒级语音/手势分类响应。</p>
+                                <h4 class="text-[#FAFAFA] font-bold text-lg mb-2 tracking-tight" data-i18n="algorithms.feature1.title">微模型推理加速框架</h4>
+                                <p class="text-[#6A6A6A] text-sm leading-relaxed" data-i18n="algorithms.feature1.desc">支持 INT4 极限量化，在 100MHz 主频的 MCU 上实现毫秒级语音/手势分类响应。</p>
                             </div>
                         </div>
 
@@ -403,8 +417,8 @@
                                 </svg>
                             </div>
                             <div>
-                                <h4 class="text-[#FAFAFA] font-bold text-lg mb-2 tracking-tight">多模态云端协同调度</h4>
-                                <p class="text-[#6A6A6A] text-sm leading-relaxed">复杂视觉理解任务无缝上云，端侧实现特征提取压缩，数据传输带宽降低 85%。</p>
+                                <h4 class="text-[#FAFAFA] font-bold text-lg mb-2 tracking-tight" data-i18n="algorithms.feature2.title">多模态云端协同调度</h4>
+                                <p class="text-[#6A6A6A] text-sm leading-relaxed" data-i18n="algorithms.feature2.desc">复杂视觉理解任务无缝上云，端侧实现特征提取压缩，数据传输带宽降低 85%。</p>
                             </div>
                         </div>
 
@@ -415,8 +429,8 @@
                                 </svg>
                             </div>
                             <div>
-                                <h4 class="text-[#FAFAFA] font-bold text-lg mb-2 tracking-tight">边缘端持续学习免遗忘</h4>
-                                <p class="text-[#6A6A6A] text-sm leading-relaxed">结合自研记忆网络，设备能根据用户习惯进行千人千面的适应性微调保护隐私。</p>
+                                <h4 class="text-[#FAFAFA] font-bold text-lg mb-2 tracking-tight" data-i18n="algorithms.feature3.title">边缘端持续学习免遗忘</h4>
+                                <p class="text-[#6A6A6A] text-sm leading-relaxed" data-i18n="algorithms.feature3.desc">结合自研记忆网络，设备能根据用户习惯进行千人千面的适应性微调保护隐私。</p>
                             </div>
                         </div>
                     </div>
@@ -435,7 +449,7 @@
                             </div>
                             <div class="flex-grow">
                                 <div class="flex justify-between text-xs mb-2">
-                                    <span class="text-primary">Local Inference</span>
+                                    <span class="text-primary" data-i18n="code.local">Local Inference</span>
                                     <span class="text-[#4A4A4A]">2ms</span>
                                 </div>
                                 <div class="h-1.5 w-full bg-surface rounded-full overflow-hidden">
@@ -447,7 +461,7 @@
                         <div class="p-5 rounded-xl bg-surface-light border border-white/[0.06] text-sm text-[#A0A0A0] font-mono flex items-center gap-4 w-4/5 self-end transform rotate-1 hover:rotate-0 transition-all duration-300">
                             <div class="flex-grow">
                                 <div class="flex justify-between text-xs mb-2">
-                                    <span class="text-primary">Cloud Syncing</span>
+                                    <span class="text-primary" data-i18n="code.cloud">Cloud Syncing</span>
                                     <span class="text-[#4A4A4A]">120ms</span>
                                 </div>
                                 <div class="h-1.5 w-full bg-surface rounded-full overflow-hidden">
@@ -463,16 +477,16 @@
 
                         <div class="p-6 rounded-xl bg-primary/[0.05] border border-primary/20 text-sm text-[#FAFAFA] font-mono flex flex-col gap-3 w-11/12 mx-auto mt-2 transform hover:scale-[1.02] transition-all duration-300 cursor-pointer">
                             <div class="flex items-center gap-2">
-                                <span class="text-primary">import</span>
+                                <span class="text-primary" data-i18n="code.import">import</span>
                                 <span>xalgo_core</span>
-                                <span class="text-primary">as</span>
+                                <span class="text-primary" data-i18n="code.as">as</span>
                                 <span>xc</span>
                             </div>
                             <div class="flex items-center gap-2 text-[#6A6A6A]">
                                 <span>model = xc.load_model("gesture_int4")</span>
                             </div>
                             <div class="flex items-center gap-2 text-primary">
-                                <span>// Accuracy: 99.2%, RAM: 1.2MB</span>
+                                <span data-i18n="code.comment">// Accuracy: 99.2%, RAM: 1.2MB</span>
                             </div>
                         </div>
                     </div>
@@ -493,9 +507,9 @@
                         </svg>
                     </div>
 
-                    <h2 class="text-4xl md:text-5xl font-bold text-[#FAFAFA] mb-8 tracking-tight leading-tight">封闭的算法属于过去<br />开源的算力决定未来</h2>
+                    <h2 class="text-4xl md:text-5xl font-bold text-[#FAFAFA] mb-8 tracking-tight leading-tight" data-i18n="opensource.title">封闭的算法属于过去<br />开源的算力决定未来</h2>
                     
-                    <p class="text-[#6A6A6A] text-lg md:text-xl max-w-2xl mx-auto mb-12 leading-relaxed">
+                    <p class="text-[#6A6A6A] text-lg md:text-xl max-w-2xl mx-auto mb-12 leading-relaxed" data-i18n="opensource.desc">
                         我们坚信，最好的 AI 应该让更多人触手可及。xalgo 核心模型库现已在 GitHub 上基于 Apache 2.0 协议全面开源。<br />加入我们，一起编写万物互联的下一行代码。
                     </p>
 
@@ -504,9 +518,9 @@
                             <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
                                 <path fill-rule="evenodd" d="M12 2C6.477 2 2 6.477 2 12c0 4.42 2.87 8.17 6.84 9.5.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34-.46-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .08 1.53 1.04 1.53 1.04.87 1.52 2.34 1.07 2.91.83.09-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.92 0-1.11.38-2 1.03-2.71-.1-.25-.45-1.29.1-2.64 0 0 .84-.27 2.75 1.02.79-.22 1.65-.33 2.5-.33.85 0 1.71.11 2.5.33 1.91-1.29 2.75-1.02 2.75-1.02.55 1.35.2 2.39.1 2.64.65.71 1.03 1.6 1.03 2.71 0 3.82-2.34 4.66-4.57 4.91.36.31.69.92.69 1.85V21c0 .27.16.59.67.5C19.14 20.16 22 16.42 22 12A10 10 0 0012 2z" clip-rule="evenodd" />
                             </svg>
-                            View on GitHub
+                            <span data-i18n="opensource.github">View on GitHub</span>
                         </a>
-                        <a href="#" class="px-10 py-4 glass-card text-[#FAFAFA] hover:bg-surface-light rounded-xl font-medium tracking-wide transition-all duration-300 flex items-center justify-center">
+                        <a href="#" class="px-10 py-4 glass-card text-[#FAFAFA] hover:bg-surface-light rounded-xl font-medium tracking-wide transition-all duration-300 flex items-center justify-center" data-i18n="opensource.docs">
                             阅读技术文档
                         </a>
                     </div>
@@ -542,47 +556,48 @@
                                 <circle cx="187" cy="25" r="11" fill="none" stroke="#C5A880" stroke-width="1.5" />
                             </svg>
                     </div>
-                    <p class="text-sm text-[#4A4A4A] leading-relaxed">体验 AI 重塑生活日常。<br />让算法以硬件为载体，真正服务于人。</p>
+                    <p class="text-sm text-[#4A4A4A] leading-relaxed" data-i18n="footer.slogan">体验 AI 重塑生活日常。<br />让算法以硬件为载体，真正服务于人。</p>
                 </div>
 
                 <div>
-                    <h4 class="text-[#FAFAFA] font-bold mb-5 tracking-wide text-sm uppercase">产品</h4>
+                    <h4 class="text-[#FAFAFA] font-bold mb-5 tracking-wide text-sm uppercase" data-i18n="footer.products.title">产品</h4>
                     <ul class="space-y-3 text-sm text-[#6A6A6A]">
-                        <li><a href="#" class="hover:text-primary transition-colors">xRing 智能戒指</a></li>
-                        <li><a href="#" class="hover:text-primary transition-colors">xVision 智能眼镜</a></li>
-                        <li><a href="#" class="hover:text-primary transition-colors">xFrame 智能画框</a></li>
+                        <li><a href="#" class="hover:text-primary transition-colors" data-i18n="footer.products.ring">xRing 智能戒指</a></li>
+                        <li><a href="#" class="hover:text-primary transition-colors" data-i18n="footer.products.glasses">xVision 智能眼镜</a></li>
+                        <li><a href="#" class="hover:text-primary transition-colors" data-i18n="footer.products.frame">xFrame 智能画框</a></li>
                     </ul>
                 </div>
 
                 <div>
-                    <h4 class="text-[#FAFAFA] font-bold mb-5 tracking-wide text-sm uppercase">资源</h4>
+                    <h4 class="text-[#FAFAFA] font-bold mb-5 tracking-wide text-sm uppercase" data-i18n="footer.resources.title">资源</h4>
                     <ul class="space-y-3 text-sm text-[#6A6A6A]">
-                        <li><a href="#" class="hover:text-primary transition-colors">GitHub 仓库</a></li>
-                        <li><a href="#" class="hover:text-primary transition-colors">算法文档</a></li>
-                        <li><a href="#" class="hover:text-primary transition-colors">开发者博客</a></li>
+                        <li><a href="#" class="hover:text-primary transition-colors" data-i18n="footer.resources.github">GitHub 仓库</a></li>
+                        <li><a href="#" class="hover:text-primary transition-colors" data-i18n="footer.resources.docs">算法文档</a></li>
+                        <li><a href="#" class="hover:text-primary transition-colors" data-i18n="footer.resources.blog">开发者博客</a></li>
                     </ul>
                 </div>
 
                 <div>
-                    <h4 class="text-[#FAFAFA] font-bold mb-5 tracking-wide text-sm uppercase">联系我们</h4>
+                    <h4 class="text-[#FAFAFA] font-bold mb-5 tracking-wide text-sm uppercase" data-i18n="footer.contact.title">联系我们</h4>
                     <ul class="space-y-3 text-sm text-[#6A6A6A]">
-                        <li><a href="#" class="hover:text-primary transition-colors">合作咨询</a></li>
-                        <li><a href="#" class="hover:text-primary transition-colors">加入团队</a></li>
-                        <li><a href="#" class="hover:text-primary transition-colors">Twitter (X)</a></li>
+                        <li><a href="#" class="hover:text-primary transition-colors" data-i18n="footer.contact.partner">合作咨询</a></li>
+                        <li><a href="#" class="hover:text-primary transition-colors" data-i18n="footer.contact.careers">加入团队</a></li>
+                        <li><a href="#" class="hover:text-primary transition-colors" data-i18n="footer.contact.twitter">Twitter (X)</a></li>
                     </ul>
                 </div>
             </div>
 
             <div class="max-w-6xl mx-auto px-6 mt-16 pt-8 border-t border-white/[0.04] flex flex-col md:flex-row items-center justify-between text-xs text-[#3A3A3A]">
-                <p>&copy; 2026 xalgo.ai. All rights reserved.</p>
+                <p data-i18n="footer.copyright">&copy; 2026 xalgo.ai. All rights reserved.</p>
                 <div class="flex gap-6 mt-4 md:mt-0">
-                    <a href="#" class="hover:text-[#6A6A6A] transition-colors">隐私政策</a>
-                    <a href="#" class="hover:text-[#6A6A6A] transition-colors">服务条款</a>
+                    <a href="#" class="hover:text-[#6A6A6A] transition-colors" data-i18n="footer.privacy">隐私政策</a>
+                    <a href="#" class="hover:text-[#6A6A6A] transition-colors" data-i18n="footer.terms">服务条款</a>
                 </div>
             </div>
         </footer>
 
     </main>
+    <script src="i18n.js"></script>
 </body>
 
 </html>
