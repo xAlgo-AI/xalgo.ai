@@ -8,7 +8,7 @@ const translations = {
     'nav.algorithms': 'Algorithms',
     'nav.opensource': 'Open Source',
     'nav.github': 'GitHub',
-    'nav.community': 'Join Community',
+    'nav.community': 'Community',
 
     // Hero Section
     'hero.tag': 'xalgo-v1 Model Now Open Source',
@@ -99,7 +99,7 @@ const translations = {
     'nav.algorithms': '核心算法',
     'nav.opensource': '开源生态',
     'nav.github': 'GitHub',
-    'nav.community': '加入社区',
+    'nav.community': '社区',
 
     // Hero Section
     'hero.tag': 'xalgo-v1 模型现已开源',
