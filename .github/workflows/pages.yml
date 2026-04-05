@@ -32,6 +32,11 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
         
+      - name: Remove sensitive files
+        run: |
+          rm -f CLAUDE.md
+          rm -rf .codebuddy
+          
       - name: Setup Pages
         uses: actions/configure-pages@v5
         
