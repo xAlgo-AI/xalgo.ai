@@ -10,7 +10,8 @@
     <!-- Google Fonts: Manrope -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
 
     <script>
         tailwind.config = {
@@ -147,8 +148,15 @@
         }
 
         @keyframes blink {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0; }
+
+            0%,
+            100% {
+                opacity: 1;
+            }
+
+            50% {
+                opacity: 0;
+            }
         }
     </style>
 </head>
@@ -185,28 +193,45 @@
             </div>
 
             <div class="hidden md:flex items-center gap-10">
-                <a href="#hardware" class="text-sm font-medium text-[#A0A0A0] hover:text-[#FAFAFA] transition-colors tracking-wide" data-i18n="nav.hardware">硬件产品</a>
-                <a href="#algorithms" class="text-sm font-medium text-[#A0A0A0] hover:text-[#FAFAFA] transition-colors tracking-wide" data-i18n="nav.algorithms">核心算法</a>
-                <a href="#opensource" class="text-sm font-medium text-[#A0A0A0] hover:text-[#FAFAFA] transition-colors tracking-wide" data-i18n="nav.opensource">开源生态</a>
+                <a href="#hardware"
+                    class="text-sm font-medium text-[#A0A0A0] hover:text-[#FAFAFA] transition-colors tracking-wide"
+                    data-i18n="nav.hardware">硬件产品</a>
+                <a href="#algorithms"
+                    class="text-sm font-medium text-[#A0A0A0] hover:text-[#FAFAFA] transition-colors tracking-wide"
+                    data-i18n="nav.algorithms">核心算法</a>
+                <a href="#opensource"
+                    class="text-sm font-medium text-[#A0A0A0] hover:text-[#FAFAFA] transition-colors tracking-wide"
+                    data-i18n="nav.opensource">开源生态</a>
             </div>
 
             <div class="flex items-center gap-4">
-                <a href="#opensource" class="btn-secondary px-5 py-2.5 rounded-xl text-sm font-medium tracking-wide" data-i18n="nav.community">
+                <a href="#opensource" class="btn-secondary px-5 py-2.5 rounded-xl text-sm font-medium tracking-wide"
+                    data-i18n="nav.community">
                     加入社区
                 </a>
                 <!-- Language Switcher -->
                 <div class="relative" id="lang-switcher">
-                    <button id="lang-btn" class="flex items-center gap-1 text-sm font-medium text-primary hover:text-secondary transition-colors tracking-wide px-2 py-1 rounded-lg hover:bg-white/5">
+                    <button id="lang-btn"
+                        class="flex items-center gap-1 text-sm font-medium text-primary hover:text-secondary transition-colors tracking-wide px-2 py-1 rounded-lg hover:bg-white/5">
                         <span id="current-lang">ZH</span>
-                        <svg class="w-4 h-4 transition-transform" id="lang-arrow" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <svg class="w-4 h-4 transition-transform" id="lang-arrow" fill="none" viewBox="0 0 24 24"
+                            stroke="currentColor">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
                         </svg>
                     </button>
-                    <div id="lang-menu" class="absolute right-0 top-full pt-2 opacity-0 invisible transition-all duration-200 z-50">
-                        <div class="glass-card rounded-xl overflow-hidden border border-white/[0.08] shadow-xl min-w-[120px]">
-                            <button onclick="setLanguage('en'); toggleLangMenu()" class="w-full px-4 py-2.5 text-sm text-left text-[#A0A0A0] hover:text-[#FAFAFA] hover:bg-white/5 transition-colors flex items-center gap-2" data-i18n="lang.en">English</button>
-                            <button onclick="setLanguage('zh'); toggleLangMenu()" class="w-full px-4 py-2.5 text-sm text-left text-[#A0A0A0] hover:text-[#FAFAFA] hover:bg-white/5 transition-colors flex items-center gap-2" data-i18n="lang.zh">简体中文</button>
-                            <button onclick="setLanguage('ja'); toggleLangMenu()" class="w-full px-4 py-2.5 text-sm text-left text-[#A0A0A0] hover:text-[#FAFAFA] hover:bg-white/5 transition-colors flex items-center gap-2" data-i18n="lang.ja">日本語</button>
+                    <div id="lang-menu"
+                        class="absolute right-0 top-full pt-2 opacity-0 invisible transition-all duration-200 z-50">
+                        <div
+                            class="glass-card rounded-xl overflow-hidden border border-white/[0.08] shadow-xl min-w-[120px]">
+                            <button onclick="setLanguage('en'); toggleLangMenu()"
+                                class="w-full px-4 py-2.5 text-sm text-left text-[#A0A0A0] hover:text-[#FAFAFA] hover:bg-white/5 transition-colors flex items-center gap-2"
+                                data-i18n="lang.en">English</button>
+                            <button onclick="setLanguage('zh'); toggleLangMenu()"
+                                class="w-full px-4 py-2.5 text-sm text-left text-[#A0A0A0] hover:text-[#FAFAFA] hover:bg-white/5 transition-colors flex items-center gap-2"
+                                data-i18n="lang.zh">简体中文</button>
+                            <button onclick="setLanguage('ja'); toggleLangMenu()"
+                                class="w-full px-4 py-2.5 text-sm text-left text-[#A0A0A0] hover:text-[#FAFAFA] hover:bg-white/5 transition-colors flex items-center gap-2"
+                                data-i18n="lang.ja">日本語</button>
                         </div>
                     </div>
                 </div>
@@ -218,49 +243,62 @@
     <main class="relative z-10 pt-36 flex flex-col items-center">
 
         <!-- Hero Section -->
-        <section class="w-full max-w-5xl mx-auto px-6 min-h-[80vh] flex flex-col items-center justify-center text-center animate-slide-up">
+        <section
+            class="w-full max-w-5xl mx-auto px-6 min-h-[80vh] flex flex-col items-center justify-center text-center animate-slide-up">
             <!-- Tag -->
-            <div class="inline-flex items-center gap-3 px-5 py-2.5 rounded-full glass-panel mb-10 border border-primary/20">
+            <div
+                class="inline-flex items-center gap-3 px-5 py-2.5 rounded-full glass-panel mb-10 border border-primary/20">
                 <span class="flex w-2 h-2 rounded-full bg-primary"></span>
                 <span class="text-sm font-medium text-primary tracking-wide" data-i18n="hero.tag">xalgo-v1 模型现已开源</span>
             </div>
 
             <!-- Main Title -->
-            <h1 class="text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight text-[#FAFAFA] mb-8 leading-[1.1] max-w-4xl">
+            <h1
+                class="text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight text-[#FAFAFA] mb-8 leading-[1.1] max-w-4xl">
                 <span data-i18n="hero.title">体验 AI</span> <br class="md:hidden" />
-                <span class="gradient-text typewriter-text" data-i18n="hero.titleHighlight"></span><span class="typewriter-cursor">|</span>
+                <span class="gradient-text typewriter-text" data-i18n="hero.titleHighlight"></span><span
+                    class="typewriter-cursor">|</span>
             </h1>
 
             <!-- Subtitle -->
-            <p class="text-lg md:text-xl text-[#6A6A6A] max-w-2xl mb-14 font-normal leading-relaxed" data-i18n="hero.subtitle">
+            <p class="text-lg md:text-xl text-[#6A6A6A] max-w-2xl mb-14 font-normal leading-relaxed"
+                data-i18n="hero.subtitle">
                 基于前沿自研算法，我们打造了能读懂您的智能戒指、智能眼镜与画框。现在，我们将核心模型开源，邀请全球极客共建万物智联的未来。
             </p>
 
             <!-- CTA Buttons -->
             <div class="flex flex-col sm:flex-row items-center gap-4 w-full justify-center">
-                <a href="#opensource" class="w-full sm:w-auto px-10 py-4 btn-primary rounded-xl font-semibold tracking-wide flex items-center justify-center gap-3 group">
+                <a href="#opensource"
+                    class="w-full sm:w-auto px-10 py-4 btn-primary rounded-xl font-semibold tracking-wide flex items-center justify-center gap-3 group">
                     <span data-i18n="hero.ctaPrimary">参与开源共建</span>
-                    <svg class="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+                    <svg class="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24"
+                        stroke="currentColor" stroke-width="2.5">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3" />
                     </svg>
                 </a>
-                <a href="#hardware" class="w-full sm:w-auto px-10 py-4 btn-secondary rounded-xl font-medium tracking-wide flex items-center justify-center" data-i18n="hero.ctaSecondary">
+                <a href="#hardware"
+                    class="w-full sm:w-auto px-10 py-4 btn-secondary rounded-xl font-medium tracking-wide flex items-center justify-center"
+                    data-i18n="hero.ctaSecondary">
                     探索智能硬件
                 </a>
             </div>
 
             <!-- Social Proof -->
             <div class="mt-28 w-full border-t border-white/[0.06] pt-12 animate-fade-in" style="animation-delay: 0.5s;">
-                <p class="text-sm font-medium text-[#4A4A4A] mb-8 uppercase tracking-[0.2em]" data-i18n="hero.socialProof">已有 10,000+ 开发者加入生态</p>
-                <div class="flex flex-wrap justify-center gap-10 md:gap-16 opacity-40 grayscale hover:grayscale-0 transition-all duration-700">
+                <p class="text-sm font-medium text-[#4A4A4A] mb-8 uppercase tracking-[0.2em]"
+                    data-i18n="hero.socialProof">已有 10,000+ 开发者加入生态</p>
+                <div
+                    class="flex flex-wrap justify-center gap-10 md:gap-16 opacity-40 grayscale hover:grayscale-0 transition-all duration-700">
                     <div class="flex items-center gap-3">
                         <svg class="w-5 h-5 text-[#FAFAFA]" viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M12 2C6.477 2 2 6.477 2 12c0 4.42 2.865 8.166 6.839 9.489.5.092.682-.217.682-.482 0-.237-.008-.866-.013-1.699-2.782.603-3.369-1.34-3.369-1.34-.454-1.156-1.11-1.462-1.11-1.462-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.087 2.91.831.092-.646.35-1.086.636-1.336-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.269 2.75 1.025A9.578 9.578 0 0112 6.836c.85.004 1.705.114 2.504.336 1.909-1.294 2.747-1.025 2.747-1.025.546 1.377.203 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.842-2.339 4.687-4.566 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.743 0 .267.18.578.688.48C19.138 20.161 22 16.416 22 12c0-5.523-4.477-10-10-10z" />
+                            <path
+                                d="M12 2C6.477 2 2 6.477 2 12c0 4.42 2.865 8.166 6.839 9.489.5.092.682-.217.682-.482 0-.237-.008-.866-.013-1.699-2.782.603-3.369-1.34-3.369-1.34-.454-1.156-1.11-1.462-1.11-1.462-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.087 2.91.831.092-.646.35-1.086.636-1.336-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.269 2.75 1.025A9.578 9.578 0 0112 6.836c.85.004 1.705.114 2.504.336 1.909-1.294 2.747-1.025 2.747-1.025.546 1.377.203 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.842-2.339 4.687-4.566 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.743 0 .267.18.578.688.48C19.138 20.161 22 16.416 22 12c0-5.523-4.477-10-10-10z" />
                         </svg>
                         <span class="font-semibold text-[#FAFAFA] text-lg tracking-tight">GitHub</span>
                     </div>
                     <div class="flex items-center gap-3">
-                        <svg class="w-5 h-5 text-[#FAFAFA]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <svg class="w-5 h-5 text-[#FAFAFA]" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
                             <rect x="3" y="3" width="18" height="18" rx="2" />
                             <line x1="3" y1="9" x2="21" y2="9" />
                             <line x1="9" y1="21" x2="9" y2="9" />
@@ -268,13 +306,15 @@
                         <span class="font-semibold text-[#FAFAFA] text-lg tracking-tight">DataTech</span>
                     </div>
                     <div class="flex items-center gap-3">
-                        <svg class="w-5 h-5 text-[#FAFAFA]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <svg class="w-5 h-5 text-[#FAFAFA]" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
                             <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
                         </svg>
                         <span class="font-semibold text-[#FAFAFA] text-lg tracking-tight">AILabs</span>
                     </div>
                     <div class="flex items-center gap-3">
-                        <svg class="w-5 h-5 text-[#FAFAFA]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <svg class="w-5 h-5 text-[#FAFAFA]" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
                             <polygon points="12 2 2 7 12 12 22 7 12 2" />
                             <polyline points="2 17 12 22 22 17" />
                             <polyline points="2 12 12 17 22 12" />
@@ -288,41 +328,52 @@
         <!-- Chapter 1: Hardware Showcase -->
         <section id="hardware" class="w-full max-w-6xl mx-auto px-6 py-32 border-t border-white/[0.04]">
             <div class="text-center mb-20">
-                <span class="text-primary font-semibold tracking-[0.2em] text-sm uppercase" data-i18n="hardware.tag">Smart Hardware</span>
-                <h2 class="text-4xl md:text-5xl font-bold text-[#FAFAFA] mt-4 mb-6 tracking-tight" data-i18n="hardware.title">无感交互的载体</h2>
-                <p class="text-[#6A6A6A] max-w-2xl mx-auto text-lg font-normal leading-relaxed" data-i18n="hardware.subtitle">我们不只是做算法。为了让 AI 真正融入生活，我们重构了硬件形态，打造极致的计算载体。</p>
+                <span class="text-primary font-semibold tracking-[0.2em] text-sm uppercase"
+                    data-i18n="hardware.tag">Smart Hardware</span>
+                <h2 class="text-4xl md:text-5xl font-bold text-[#FAFAFA] mt-4 mb-6 tracking-tight"
+                    data-i18n="hardware.title">无感交互的载体</h2>
+                <p class="text-[#6A6A6A] max-w-2xl mx-auto text-lg font-normal leading-relaxed"
+                    data-i18n="hardware.subtitle">我们不只是做算法。为了让 AI 真正融入生活，我们重构了硬件形态，打造极致的计算载体。</p>
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
                 <!-- Smart Ring -->
                 <div class="glass-card rounded-2xl p-8 flex flex-col items-start relative overflow-hidden group">
-                    <div class="absolute inset-0 bg-gradient-to-br from-primary/[0.03] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                    
-                    <div class="w-14 h-14 rounded-2xl bg-surface-light border border-white/[0.06] flex items-center justify-center mb-8 text-primary">
+                    <div
+                        class="absolute inset-0 bg-gradient-to-br from-primary/[0.03] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                    </div>
+
+                    <div
+                        class="w-14 h-14 rounded-2xl bg-surface-light border border-white/[0.06] flex items-center justify-center mb-8 text-primary">
                         <svg class="w-7 h-7" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
                             <circle cx="12" cy="12" r="8" />
                             <circle cx="12" cy="12" r="3" />
                         </svg>
                     </div>
-                    
-                    <h3 class="text-2xl font-bold text-[#FAFAFA] mb-4 tracking-tight" data-i18n="hardware.ring.name">xRing 智能戒指</h3>
-                    <p class="text-[#6A6A6A] mb-8 flex-grow leading-relaxed" data-i18n="hardware.ring.desc">指尖的微型算力中心。全天候生命体征监测，结合端侧手势识别算法，让指尖微动即可掌控全局。</p>
-                    
+
+                    <h3 class="text-2xl font-bold text-[#FAFAFA] mb-4 tracking-tight" data-i18n="hardware.ring.name">
+                        xRing 智能戒指</h3>
+                    <p class="text-[#6A6A6A] mb-8 flex-grow leading-relaxed" data-i18n="hardware.ring.desc">
+                        指尖的微型算力中心。全天候生命体征监测，结合端侧手势识别算法，让指尖微动即可掌控全局。</p>
+
                     <ul class="text-sm text-[#A0A0A0] space-y-3">
                         <li class="flex items-center gap-3">
-                            <svg class="w-4 h-4 text-primary flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                            <svg class="w-4 h-4 text-primary flex-shrink-0" fill="none" viewBox="0 0 24 24"
+                                stroke="currentColor" stroke-width="2">
                                 <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
                             </svg>
                             <span data-i18n="hardware.ring.feature1">超低功耗毫秒级响应</span>
                         </li>
                         <li class="flex items-center gap-3">
-                            <svg class="w-4 h-4 text-primary flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                            <svg class="w-4 h-4 text-primary flex-shrink-0" fill="none" viewBox="0 0 24 24"
+                                stroke="currentColor" stroke-width="2">
                                 <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
                             </svg>
                             <span data-i18n="hardware.ring.feature2">端侧持续学习引擎</span>
                         </li>
                         <li class="flex items-center gap-3">
-                            <svg class="w-4 h-4 text-primary flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                            <svg class="w-4 h-4 text-primary flex-shrink-0" fill="none" viewBox="0 0 24 24"
+                                stroke="currentColor" stroke-width="2">
                                 <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
                             </svg>
                             <span data-i18n="hardware.ring.feature3">医用级体征传感</span>
@@ -332,34 +383,42 @@
 
                 <!-- Smart Glasses -->
                 <div class="glass-card rounded-2xl p-8 flex flex-col items-start relative overflow-hidden group">
-                    <div class="absolute inset-0 bg-gradient-to-br from-primary/[0.03] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                    
-                    <div class="w-14 h-14 rounded-2xl bg-surface-light border border-white/[0.06] flex items-center justify-center mb-8 text-primary">
+                    <div
+                        class="absolute inset-0 bg-gradient-to-br from-primary/[0.03] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                    </div>
+
+                    <div
+                        class="w-14 h-14 rounded-2xl bg-surface-light border border-white/[0.06] flex items-center justify-center mb-8 text-primary">
                         <svg class="w-7 h-7" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
                             <path d="M4 12h16M4 12a4 4 0 0 1 4-4h8a4 4 0 0 1 4 4M4 12a4 4 0 0 0 4 4h8a4 4 0 0 0 4-4" />
                             <circle cx="8" cy="12" r="2" />
                             <circle cx="16" cy="12" r="2" />
                         </svg>
                     </div>
-                    
-                    <h3 class="text-2xl font-bold text-[#FAFAFA] mb-4 tracking-tight" data-i18n="hardware.glasses.name">xVision 智能眼镜</h3>
-                    <p class="text-[#6A6A6A] mb-8 flex-grow leading-relaxed" data-i18n="hardware.glasses.desc">所见即所得的 AI 助手。搭载自研轻量级视觉大模型，实时解析现实世界，提供增强现实交互。</p>
-                    
+
+                    <h3 class="text-2xl font-bold text-[#FAFAFA] mb-4 tracking-tight" data-i18n="hardware.glasses.name">
+                        xVision 智能眼镜</h3>
+                    <p class="text-[#6A6A6A] mb-8 flex-grow leading-relaxed" data-i18n="hardware.glasses.desc">所见即所得的 AI
+                        助手。搭载自研轻量级视觉大模型，实时解析现实世界，提供增强现实交互。</p>
+
                     <ul class="text-sm text-[#A0A0A0] space-y-3">
                         <li class="flex items-center gap-3">
-                            <svg class="w-4 h-4 text-primary flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                            <svg class="w-4 h-4 text-primary flex-shrink-0" fill="none" viewBox="0 0 24 24"
+                                stroke="currentColor" stroke-width="2">
                                 <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
                             </svg>
                             <span data-i18n="hardware.glasses.feature1">即时物体识别分析</span>
                         </li>
                         <li class="flex items-center gap-3">
-                            <svg class="w-4 h-4 text-primary flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                            <svg class="w-4 h-4 text-primary flex-shrink-0" fill="none" viewBox="0 0 24 24"
+                                stroke="currentColor" stroke-width="2">
                                 <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
                             </svg>
                             <span data-i18n="hardware.glasses.feature2">多模态音频辅助</span>
                         </li>
                         <li class="flex items-center gap-3">
-                            <svg class="w-4 h-4 text-primary flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                            <svg class="w-4 h-4 text-primary flex-shrink-0" fill="none" viewBox="0 0 24 24"
+                                stroke="currentColor" stroke-width="2">
                                 <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
                             </svg>
                             <span data-i18n="hardware.glasses.feature3">仅重 42g 轻量化设计</span>
@@ -369,34 +428,42 @@
 
                 <!-- Smart Frame -->
                 <div class="glass-card rounded-2xl p-8 flex flex-col items-start relative overflow-hidden group">
-                    <div class="absolute inset-0 bg-gradient-to-br from-primary/[0.03] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                    
-                    <div class="w-14 h-14 rounded-2xl bg-surface-light border border-white/[0.06] flex items-center justify-center mb-8 text-primary">
+                    <div
+                        class="absolute inset-0 bg-gradient-to-br from-primary/[0.03] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                    </div>
+
+                    <div
+                        class="w-14 h-14 rounded-2xl bg-surface-light border border-white/[0.06] flex items-center justify-center mb-8 text-primary">
                         <svg class="w-7 h-7" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
                             <rect x="3" y="3" width="18" height="18" rx="2" />
                             <circle cx="8.5" cy="8.5" r="1.5" />
                             <polyline points="21 15 16 10 5 21" />
                         </svg>
                     </div>
-                    
-                    <h3 class="text-2xl font-bold text-[#FAFAFA] mb-4 tracking-tight" data-i18n="hardware.frame.name">xFrame 智能画框</h3>
-                    <p class="text-[#6A6A6A] mb-8 flex-grow leading-relaxed" data-i18n="hardware.frame.desc">打破虚实边界的艺术。根据环境氛围与对话历史，使用扩散模型实时生成情绪匹配的艺术画作。</p>
-                    
+
+                    <h3 class="text-2xl font-bold text-[#FAFAFA] mb-4 tracking-tight" data-i18n="hardware.frame.name">
+                        xFrame 智能画框</h3>
+                    <p class="text-[#6A6A6A] mb-8 flex-grow leading-relaxed" data-i18n="hardware.frame.desc">
+                        打破虚实边界的艺术。根据环境氛围与对话历史，使用扩散模型实时生成情绪匹配的艺术画作。</p>
+
                     <ul class="text-sm text-[#A0A0A0] space-y-3">
                         <li class="flex items-center gap-3">
-                            <svg class="w-4 h-4 text-primary flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                            <svg class="w-4 h-4 text-primary flex-shrink-0" fill="none" viewBox="0 0 24 24"
+                                stroke="currentColor" stroke-width="2">
                                 <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
                             </svg>
                             <span data-i18n="hardware.frame.feature1">边缘计算实时生图</span>
                         </li>
                         <li class="flex items-center gap-3">
-                            <svg class="w-4 h-4 text-primary flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                            <svg class="w-4 h-4 text-primary flex-shrink-0" fill="none" viewBox="0 0 24 24"
+                                stroke="currentColor" stroke-width="2">
                                 <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
                             </svg>
                             <span data-i18n="hardware.frame.feature2">环境光自适应引擎</span>
                         </li>
                         <li class="flex items-center gap-3">
-                            <svg class="w-4 h-4 text-primary flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                            <svg class="w-4 h-4 text-primary flex-shrink-0" fill="none" viewBox="0 0 24 24"
+                                stroke="currentColor" stroke-width="2">
                                 <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
                             </svg>
                             <span data-i18n="hardware.frame.feature3">超清防眩光显示</span>
@@ -413,58 +480,83 @@
 
             <div class="relative max-w-6xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
                 <div>
-                    <span class="text-primary font-semibold tracking-[0.2em] text-sm uppercase" data-i18n="algorithms.tag">xalgo.engine</span>
-                    <h2 class="text-4xl md:text-5xl font-bold text-[#FAFAFA] mt-4 mb-8 leading-tight tracking-tight" data-i18n="algorithms.title">端云协同的<br />自研大模型引擎</h2>
-                    <p class="text-[#6A6A6A] text-lg mb-12 font-normal leading-relaxed" data-i18n="algorithms.desc">硬件的美妙在于其背后的灵魂。我们为算力受限的智能穿戴设备，重头研发了极致轻量化的 Transformer 架构变体，让复杂的 AI 推理在指尖顺畅运行。</p>
+                    <span class="text-primary font-semibold tracking-[0.2em] text-sm uppercase"
+                        data-i18n="algorithms.tag">xalgo.engine</span>
+                    <h2 class="text-4xl md:text-5xl font-bold text-[#FAFAFA] mt-4 mb-8 leading-tight tracking-tight"
+                        data-i18n="algorithms.title">端云协同的<br />自研大模型引擎</h2>
+                    <p class="text-[#6A6A6A] text-lg mb-12 font-normal leading-relaxed" data-i18n="algorithms.desc">
+                        硬件的美妙在于其背后的灵魂。我们为算力受限的智能穿戴设备，重头研发了极致轻量化的 Transformer 架构变体，让复杂的 AI 推理在指尖顺畅运行。</p>
 
                     <div class="space-y-8">
                         <div class="flex items-start gap-5">
-                            <div class="mt-1 w-12 h-12 rounded-xl bg-surface-light border border-white/[0.06] flex flex-shrink-0 items-center justify-center text-primary">
-                                <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
-                                    <path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z" />
+                            <div
+                                class="mt-1 w-12 h-12 rounded-xl bg-surface-light border border-white/[0.06] flex flex-shrink-0 items-center justify-center text-primary">
+                                <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"
+                                    stroke-width="1.5">
+                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                        d="M13 10V3L4 14h7v7l9-11h-7z" />
                                 </svg>
                             </div>
                             <div>
-                                <h4 class="text-[#FAFAFA] font-bold text-lg mb-2 tracking-tight" data-i18n="algorithms.feature1.title">微模型推理加速框架</h4>
-                                <p class="text-[#6A6A6A] text-sm leading-relaxed" data-i18n="algorithms.feature1.desc">支持 INT4 极限量化，在 100MHz 主频的 MCU 上实现毫秒级语音/手势分类响应。</p>
+                                <h4 class="text-[#FAFAFA] font-bold text-lg mb-2 tracking-tight"
+                                    data-i18n="algorithms.feature1.title">微模型推理加速框架</h4>
+                                <p class="text-[#6A6A6A] text-sm leading-relaxed" data-i18n="algorithms.feature1.desc">
+                                    支持 INT4 极限量化，在 100MHz 主频的 MCU 上实现毫秒级语音/手势分类响应。</p>
                             </div>
                         </div>
 
                         <div class="flex items-start gap-5">
-                            <div class="mt-1 w-12 h-12 rounded-xl bg-surface-light border border-white/[0.06] flex flex-shrink-0 items-center justify-center text-primary">
-                                <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
-                                    <path stroke-linecap="round" stroke-linejoin="round" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9" />
+                            <div
+                                class="mt-1 w-12 h-12 rounded-xl bg-surface-light border border-white/[0.06] flex flex-shrink-0 items-center justify-center text-primary">
+                                <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"
+                                    stroke-width="1.5">
+                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                        d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9" />
                                 </svg>
                             </div>
                             <div>
-                                <h4 class="text-[#FAFAFA] font-bold text-lg mb-2 tracking-tight" data-i18n="algorithms.feature2.title">多模态云端协同调度</h4>
-                                <p class="text-[#6A6A6A] text-sm leading-relaxed" data-i18n="algorithms.feature2.desc">复杂视觉理解任务无缝上云，端侧实现特征提取压缩，数据传输带宽降低 85%。</p>
+                                <h4 class="text-[#FAFAFA] font-bold text-lg mb-2 tracking-tight"
+                                    data-i18n="algorithms.feature2.title">多模态云端协同调度</h4>
+                                <p class="text-[#6A6A6A] text-sm leading-relaxed" data-i18n="algorithms.feature2.desc">
+                                    复杂视觉理解任务无缝上云，端侧实现特征提取压缩，数据传输带宽降低 85%。</p>
                             </div>
                         </div>
 
                         <div class="flex items-start gap-5">
-                            <div class="mt-1 w-12 h-12 rounded-xl bg-surface-light border border-white/[0.06] flex flex-shrink-0 items-center justify-center text-primary">
-                                <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
-                                    <path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                            <div
+                                class="mt-1 w-12 h-12 rounded-xl bg-surface-light border border-white/[0.06] flex flex-shrink-0 items-center justify-center text-primary">
+                                <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"
+                                    stroke-width="1.5">
+                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                        d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
                                 </svg>
                             </div>
                             <div>
-                                <h4 class="text-[#FAFAFA] font-bold text-lg mb-2 tracking-tight" data-i18n="algorithms.feature3.title">边缘端持续学习免遗忘</h4>
-                                <p class="text-[#6A6A6A] text-sm leading-relaxed" data-i18n="algorithms.feature3.desc">结合自研记忆网络，设备能根据用户习惯进行千人千面的适应性微调保护隐私。</p>
+                                <h4 class="text-[#FAFAFA] font-bold text-lg mb-2 tracking-tight"
+                                    data-i18n="algorithms.feature3.title">边缘端持续学习免遗忘</h4>
+                                <p class="text-[#6A6A6A] text-sm leading-relaxed" data-i18n="algorithms.feature3.desc">
+                                    结合自研记忆网络，设备能根据用户习惯进行千人千面的适应性微调保护隐私。</p>
                             </div>
                         </div>
                     </div>
                 </div>
 
                 <!-- Code Representation -->
-                <div class="glass-card rounded-2xl p-8 h-full min-h-[420px] flex items-center justify-center relative overflow-hidden border border-white/[0.06]">
-                    <div class="absolute inset-0 opacity-[0.03] bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAiIGhlaWdodD0iMjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGNpcmNsZSBjeD0iMSIgY3k9IjEiIHI9IjEiIGZpbGw9InJnYmEoMjU1LDI1NSwyNTUsMC44KSIvPjwvc3ZnPg==')] [background-size:24px_24px]"></div>
-                    
+                <div
+                    class="glass-card rounded-2xl p-8 h-full min-h-[420px] flex items-center justify-center relative overflow-hidden border border-white/[0.06]">
+                    <div
+                        class="absolute inset-0 opacity-[0.03] bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAiIGhlaWdodD0iMjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGNpcmNsZSBjeD0iMSIgY3k9IjEiIHI9IjEiIGZpbGw9InJnYmEoMjU1LDI1NSwyNTUsMC44KSIvPjwvc3ZnPg==')] [background-size:24px_24px]">
+                    </div>
+
                     <div class="relative w-full z-10 flex flex-col gap-5">
-                        <div class="p-5 rounded-xl bg-surface-light border border-white/[0.06] text-sm text-[#A0A0A0] font-mono flex items-center gap-4 w-4/5 transform -rotate-1 hover:rotate-0 transition-all duration-300">
-                            <div class="w-10 h-10 rounded-xl bg-surface border border-white/[0.06] flex items-center justify-center text-primary">
-                                <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                                    <path stroke-linecap="round" stroke-linejoin="round" d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z" />
+                        <div
+                            class="p-5 rounded-xl bg-surface-light border border-white/[0.06] text-sm text-[#A0A0A0] font-mono flex items-center gap-4 w-4/5 transform -rotate-1 hover:rotate-0 transition-all duration-300">
+                            <div
+                                class="w-10 h-10 rounded-xl bg-surface border border-white/[0.06] flex items-center justify-center text-primary">
+                                <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"
+                                    stroke-width="2">
+                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                        d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z" />
                                 </svg>
                             </div>
                             <div class="flex-grow">
@@ -478,7 +570,8 @@
                             </div>
                         </div>
 
-                        <div class="p-5 rounded-xl bg-surface-light border border-white/[0.06] text-sm text-[#A0A0A0] font-mono flex items-center gap-4 w-4/5 self-end transform rotate-1 hover:rotate-0 transition-all duration-300">
+                        <div
+                            class="p-5 rounded-xl bg-surface-light border border-white/[0.06] text-sm text-[#A0A0A0] font-mono flex items-center gap-4 w-4/5 self-end transform rotate-1 hover:rotate-0 transition-all duration-300">
                             <div class="flex-grow">
                                 <div class="flex justify-between text-xs mb-2">
                                     <span class="text-primary" data-i18n="code.cloud">Cloud Syncing</span>
@@ -488,14 +581,18 @@
                                     <div class="h-full bg-primary w-3/4"></div>
                                 </div>
                             </div>
-                            <div class="w-10 h-10 rounded-xl bg-surface border border-white/[0.06] flex items-center justify-center text-primary">
-                                <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                                    <path stroke-linecap="round" stroke-linejoin="round" d="M3 15a4 4 0 004 4h9a5 5 0 10-.1-9.999 5.002 5.002 0 10-9.78 2.096A4.001 4.001 0 003 15z" />
+                            <div
+                                class="w-10 h-10 rounded-xl bg-surface border border-white/[0.06] flex items-center justify-center text-primary">
+                                <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"
+                                    stroke-width="2">
+                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                        d="M3 15a4 4 0 004 4h9a5 5 0 10-.1-9.999 5.002 5.002 0 10-9.78 2.096A4.001 4.001 0 003 15z" />
                                 </svg>
                             </div>
                         </div>
 
-                        <div class="p-6 rounded-xl bg-primary/[0.05] border border-primary/20 text-sm text-[#FAFAFA] font-mono flex flex-col gap-3 w-11/12 mx-auto mt-2 transform hover:scale-[1.02] transition-all duration-300 cursor-pointer">
+                        <div
+                            class="p-6 rounded-xl bg-primary/[0.05] border border-primary/20 text-sm text-[#FAFAFA] font-mono flex flex-col gap-3 w-11/12 mx-auto mt-2 transform hover:scale-[1.02] transition-all duration-300 cursor-pointer">
                             <div class="flex items-center gap-2">
                                 <span class="text-primary" data-i18n="code.import">import</span>
                                 <span>xalgo_core</span>
@@ -518,29 +615,41 @@
         <section id="opensource" class="w-full max-w-5xl mx-auto px-6 mb-32 text-center">
             <div class="glass-card rounded-[2rem] p-12 md:p-20 relative overflow-hidden border border-white/[0.06]">
                 <!-- Inner glow -->
-                <div class="absolute inset-0 bg-gradient-to-b from-primary/[0.08] via-transparent to-transparent opacity-50"></div>
+                <div
+                    class="absolute inset-0 bg-gradient-to-b from-primary/[0.08] via-transparent to-transparent opacity-50">
+                </div>
 
                 <div class="relative z-10 flex flex-col items-center">
-                    <div class="w-16 h-16 rounded-2xl bg-surface-light border border-white/[0.08] flex items-center justify-center mb-10">
+                    <div
+                        class="w-16 h-16 rounded-2xl bg-surface-light border border-white/[0.08] flex items-center justify-center mb-10">
                         <svg class="w-8 h-8 text-[#FAFAFA]" fill="currentColor" viewBox="0 0 24 24">
-                            <path fill-rule="evenodd" d="M12 2C6.477 2 2 6.477 2 12c0 4.42 2.87 8.17 6.84 9.5.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34-.46-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .08 1.53 1.04 1.53 1.04.87 1.52 2.34 1.07 2.91.83.09-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.92 0-1.11.38-2 1.03-2.71-.1-.25-.45-1.29.1-2.64 0 0 .84-.27 2.75 1.02.79-.22 1.65-.33 2.5-.33.85 0 1.71.11 2.5.33 1.91-1.29 2.75-1.02 2.75-1.02.55 1.35.2 2.39.1 2.64.65.71 1.03 1.6 1.03 2.71 0 3.82-2.34 4.66-4.57 4.91.36.31.69.92.69 1.85V21c0 .27.16.59.67.5C19.14 20.16 22 16.42 22 12A10 10 0 0012 2z" clip-rule="evenodd" />
+                            <path fill-rule="evenodd"
+                                d="M12 2C6.477 2 2 6.477 2 12c0 4.42 2.87 8.17 6.84 9.5.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34-.46-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .08 1.53 1.04 1.53 1.04.87 1.52 2.34 1.07 2.91.83.09-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.92 0-1.11.38-2 1.03-2.71-.1-.25-.45-1.29.1-2.64 0 0 .84-.27 2.75 1.02.79-.22 1.65-.33 2.5-.33.85 0 1.71.11 2.5.33 1.91-1.29 2.75-1.02 2.75-1.02.55 1.35.2 2.39.1 2.64.65.71 1.03 1.6 1.03 2.71 0 3.82-2.34 4.66-4.57 4.91.36.31.69.92.69 1.85V21c0 .27.16.59.67.5C19.14 20.16 22 16.42 22 12A10 10 0 0012 2z"
+                                clip-rule="evenodd" />
                         </svg>
                     </div>
 
-                    <h2 class="text-4xl md:text-5xl font-bold text-[#FAFAFA] mb-8 tracking-tight leading-tight" data-i18n="opensource.title">封闭的算法属于过去<br />开源的算力决定未来</h2>
-                    
-                    <p class="text-[#6A6A6A] text-lg md:text-xl max-w-2xl mx-auto mb-12 leading-relaxed" data-i18n="opensource.desc">
+                    <h2 class="text-4xl md:text-5xl font-bold text-[#FAFAFA] mb-8 tracking-tight leading-tight"
+                        data-i18n="opensource.title">封闭的算法属于过去<br />开源的算力决定未来</h2>
+
+                    <p class="text-[#6A6A6A] text-lg md:text-xl max-w-2xl mx-auto mb-12 leading-relaxed"
+                        data-i18n="opensource.desc">
                         我们坚信，最好的 AI 应该让更多人触手可及。xalgo 核心模型库现已在 GitHub 上基于 Apache 2.0 协议全面开源。<br />加入我们，一起编写万物互联的下一行代码。
                     </p>
 
                     <div class="flex flex-col sm:flex-row gap-4">
-                        <a href="https://github.com/xalgo-lab/Xalgo" target="_blank" class="px-10 py-4 bg-[#FAFAFA] text-[#0A0A0A] rounded-xl font-bold tracking-wide transition-all duration-300 hover:bg-white hover:scale-[1.02] flex items-center justify-center gap-3">
+                        <a href="https://github.com/xalgo-lab/Xalgo" target="_blank"
+                            class="px-10 py-4 bg-[#FAFAFA] text-[#0A0A0A] rounded-xl font-bold tracking-wide transition-all duration-300 hover:bg-white hover:scale-[1.02] flex items-center justify-center gap-3">
                             <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                                <path fill-rule="evenodd" d="M12 2C6.477 2 2 6.477 2 12c0 4.42 2.87 8.17 6.84 9.5.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34-.46-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .08 1.53 1.04 1.53 1.04.87 1.52 2.34 1.07 2.91.83.09-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.92 0-1.11.38-2 1.03-2.71-.1-.25-.45-1.29.1-2.64 0 0 .84-.27 2.75 1.02.79-.22 1.65-.33 2.5-.33.85 0 1.71.11 2.5.33 1.91-1.29 2.75-1.02 2.75-1.02.55 1.35.2 2.39.1 2.64.65.71 1.03 1.6 1.03 2.71 0 3.82-2.34 4.66-4.57 4.91.36.31.69.92.69 1.85V21c0 .27.16.59.67.5C19.14 20.16 22 16.42 22 12A10 10 0 0012 2z" clip-rule="evenodd" />
+                                <path fill-rule="evenodd"
+                                    d="M12 2C6.477 2 2 6.477 2 12c0 4.42 2.87 8.17 6.84 9.5.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34-.46-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .08 1.53 1.04 1.53 1.04.87 1.52 2.34 1.07 2.91.83.09-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.92 0-1.11.38-2 1.03-2.71-.1-.25-.45-1.29.1-2.64 0 0 .84-.27 2.75 1.02.79-.22 1.65-.33 2.5-.33.85 0 1.71.11 2.5.33 1.91-1.29 2.75-1.02 2.75-1.02.55 1.35.2 2.39.1 2.64.65.71 1.03 1.6 1.03 2.71 0 3.82-2.34 4.66-4.57 4.91.36.31.69.92.69 1.85V21c0 .27.16.59.67.5C19.14 20.16 22 16.42 22 12A10 10 0 0012 2z"
+                                    clip-rule="evenodd" />
                             </svg>
                             <span data-i18n="opensource.github">View on GitHub</span>
                         </a>
-                        <a href="#" class="px-10 py-4 glass-card text-[#FAFAFA] hover:bg-surface-light rounded-xl font-medium tracking-wide transition-all duration-300 flex items-center justify-center" data-i18n="opensource.docs">
+                        <a href="#"
+                            class="px-10 py-4 glass-card text-[#FAFAFA] hover:bg-surface-light rounded-xl font-medium tracking-wide transition-all duration-300 flex items-center justify-center"
+                            data-i18n="opensource.docs">
                             阅读技术文档
                         </a>
                     </div>
@@ -554,52 +663,63 @@
                 <div class="col-span-1 md:col-span-1">
                     <div class="flex items-center mb-6">
                         <!-- XALGO Logo SVG -->
-                            <svg width="220" height="50" viewBox="0 0 220 50" xmlns="http://www.w3.org/2000/svg">
-                                <g fill="none" stroke="#FFFFFF" stroke-width="2" stroke-linecap="butt" stroke-linejoin="miter">
-                                    <!-- 【缩小断点的 X】 -->
-                                    <!-- 1. 主对角线（保持贯穿） -->
-                                    <path d="M 10 10 L 40 40" />
-                                    <!-- 2. 副对角线上半段（大幅向中心靠拢，从 29,21 延长到 27,23） -->
-                                    <path d="M 40 10 L 27 23" />
-                                    <!-- 3. 副对角线下半段（大幅向中心靠拢，从 21,29 延长到 23,27） -->
-                                    <path d="M 10 40 L 23 27" />
-                                    <!-- A -->
-                                    <path d="M 52 40 L 68 10 L 84 40" />
-                                    <!-- L -->
-                                    <path d="M 96 10 L 96 40 L 118 40" />
-                                    <!-- G -->
-                                    <path d="M 155 14 A 15 15 0 1 0 155 36 L 155 25 L 143 25" />
-                                    <!-- O (外圈) -->
-                                    <circle cx="187" cy="25" r="15" />
-                                </g>
-                                <!-- O (内圈：保持紧凑比例) -->
-                                <circle cx="187" cy="25" r="11" fill="none" stroke="#C5A880" stroke-width="1.5" />
-                            </svg>
+                        <svg width="220" height="50" viewBox="0 0 220 50" xmlns="http://www.w3.org/2000/svg">
+                            <g fill="none" stroke="#FFFFFF" stroke-width="2" stroke-linecap="butt"
+                                stroke-linejoin="miter">
+                                <!-- 【缩小断点的 X】 -->
+                                <!-- 1. 主对角线（保持贯穿） -->
+                                <path d="M 10 10 L 40 40" />
+                                <!-- 2. 副对角线上半段（大幅向中心靠拢，从 29,21 延长到 27,23） -->
+                                <path d="M 40 10 L 27 23" />
+                                <!-- 3. 副对角线下半段（大幅向中心靠拢，从 21,29 延长到 23,27） -->
+                                <path d="M 10 40 L 23 27" />
+                                <!-- A -->
+                                <path d="M 52 40 L 68 10 L 84 40" />
+                                <!-- L -->
+                                <path d="M 96 10 L 96 40 L 118 40" />
+                                <!-- G -->
+                                <path d="M 155 14 A 15 15 0 1 0 155 36 L 155 25 L 143 25" />
+                                <!-- O (外圈) -->
+                                <circle cx="187" cy="25" r="15" />
+                            </g>
+                            <!-- O (内圈：保持紧凑比例) -->
+                            <circle cx="187" cy="25" r="11" fill="none" stroke="#C5A880" stroke-width="1.5" />
+                        </svg>
                     </div>
-                    <p class="text-sm text-[#4A4A4A] leading-relaxed" data-i18n="footer.slogan">体验 AI 重塑生活日常。<br />让算法以硬件为载体，真正服务于人。</p>
+                    <p class="text-sm text-[#4A4A4A] leading-relaxed" data-i18n="footer.slogan">体验 AI
+                        重塑生活日常。<br />让算法以硬件为载体，真正服务于人。</p>
                 </div>
 
                 <div>
-                    <h4 class="text-[#FAFAFA] font-bold mb-5 tracking-wide text-sm uppercase" data-i18n="footer.resources.title">资源</h4>
+                    <h4 class="text-[#FAFAFA] font-bold mb-5 tracking-wide text-sm uppercase"
+                        data-i18n="footer.resources.title">资源</h4>
                     <ul class="space-y-3 text-sm text-[#6A6A6A]">
-                        <li><a href="#" class="hover:text-primary transition-colors" data-i18n="footer.resources.github">GitHub 仓库</a></li>
-                        <li><a href="#" class="hover:text-primary transition-colors" data-i18n="footer.resources.docs">算法文档</a></li>
-                        <li><a href="#" class="hover:text-primary transition-colors" data-i18n="footer.resources.blog">开发者博客</a></li>
+                        <li><a href="#" class="hover:text-primary transition-colors"
+                                data-i18n="footer.resources.github">GitHub 仓库</a></li>
+                        <li><a href="#" class="hover:text-primary transition-colors"
+                                data-i18n="footer.resources.docs">算法文档</a></li>
+                        <li><a href="#" class="hover:text-primary transition-colors"
+                                data-i18n="footer.resources.blog">开发者博客</a></li>
                     </ul>
                 </div>
 
                 <div>
-                    <h4 class="text-[#FAFAFA] font-bold mb-5 tracking-wide text-sm uppercase" data-i18n="footer.contact.title">联系我们</h4>
+                    <h4 class="text-[#FAFAFA] font-bold mb-5 tracking-wide text-sm uppercase"
+                        data-i18n="footer.contact.title">联系我们</h4>
                     <ul class="space-y-3 text-sm text-[#6A6A6A]">
-                        <li><a href="#" class="hover:text-primary transition-colors" data-i18n="footer.contact.partner">合作咨询</a></li>
-                        <li><a href="#" class="hover:text-primary transition-colors" data-i18n="footer.contact.careers">加入团队</a></li>
-                        <li><a href="#" class="hover:text-primary transition-colors" data-i18n="footer.contact.twitter">Twitter (X)</a></li>
+                        <li><a href="#" class="hover:text-primary transition-colors"
+                                data-i18n="footer.contact.partner">合作咨询</a></li>
+                        <li><a href="#" class="hover:text-primary transition-colors"
+                                data-i18n="footer.contact.careers">加入团队</a></li>
+                        <li><a href="#" class="hover:text-primary transition-colors"
+                                data-i18n="footer.contact.twitter">Twitter (X)</a></li>
                     </ul>
                 </div>
             </div>
 
-            <div class="max-w-6xl mx-auto px-6 mt-16 pt-8 border-t border-white/[0.04] flex flex-col md:flex-row items-center justify-between text-xs text-[#3A3A3A]">
-                <p data-i18n="footer.copyright">&copy; 2026 xalgo.ai All rights reserved.</p>
+            <div
+                class="max-w-6xl mx-auto px-6 mt-16 pt-8 border-t border-white/[0.04] flex flex-col md:flex-row items-center justify-between text-xs text-[#3A3A3A]">
+                <p data-i18n="footer.copyright">&copy; 2026 XALGO Inc. All rights reserved.</p>
                 <div class="flex gap-6 mt-4 md:mt-0">
                     <a href="#" class="hover:text-[#6A6A6A] transition-colors" data-i18n="footer.privacy">隐私政策</a>
                     <a href="#" class="hover:text-[#6A6A6A] transition-colors" data-i18n="footer.terms">服务条款</a>

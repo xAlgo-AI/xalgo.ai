@@ -83,7 +83,7 @@ const translations = {
     'footer.contact.partner': 'Partnership Inquiry',
     'footer.contact.careers': 'Join Our Team',
     'footer.contact.twitter': 'Twitter (X)',
-    'footer.copyright': '© 2026 xalgo.ai All rights reserved.',
+    'footer.copyright': '© 2026 XALGO Inc. All rights reserved.',
     'footer.privacy': 'Privacy Policy',
     'footer.terms': 'Terms of Service',
 
@@ -174,7 +174,7 @@ const translations = {
     'footer.contact.partner': '合作咨询',
     'footer.contact.careers': '加入团队',
     'footer.contact.twitter': 'Twitter (X)',
-    'footer.copyright': '© 2026 xalgo.ai All rights reserved.',
+    'footer.copyright': '© 2026 XALGO Inc. All rights reserved.',
     'footer.privacy': '隐私政策',
     'footer.terms': '服务条款',
 
@@ -265,7 +265,7 @@ const translations = {
     'footer.contact.partner': 'パートナー募集',
     'footer.contact.careers': '採用情報',
     'footer.contact.twitter': 'Twitter (X)',
-    'footer.copyright': '© 2026 xalgo.ai All rights reserved.',
+    'footer.copyright': '© 2026 XALGO Inc. All rights reserved.',
     'footer.privacy': 'プライバシーポリシー',
     'footer.terms': '利用規約',
 
